@@ -2,20 +2,20 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Website_model extends CI_Model{
-    protected $project_images_location    = 'assets/images/projects/';
-    protected $project_images_replacement = 'no-image.png';
+    protected $_project_images_location    = 'assets/images/projects/';
+    protected $_project_images_replacement = 'no-image.png';
     
     /*------------------------------------------------------------------------*/
     
     public function website(){
         $params = array(
-            'name'         => 'Space Prospection', 
-            'host'         => base_url(),
-            'made'         => 2017,
-            'description'  => 'Small website describing space exploration and search for extraterrestrial life',
-            'keywords'     => 'space, exploration, life, et, alien',
-            'favoriteIcon' => 'assets/images/favicon.png',
-            'logo_front'   => 'assets/images/logo.png'
+            'name'          => 'Space Prospection', 
+            'host'          => base_url(),
+            'made'          => 2017,
+            'description'   => 'Small website describing space exploration and search for extraterrestrial life',
+            'keywords'      => 'space, exploration, life, et, alien',
+            'favorite_icon' => 'assets/images/favicon.png',
+            'logo_front'    => 'assets/images/logo.png'
         );
         $this->load->library('zs_website', $params);
         $params = array(
@@ -26,6 +26,10 @@ class Website_model extends CI_Model{
             array(
                 'path' => 'assets/css/mobile.css', 
                 'type' => 'link'
+            ),
+            array(
+                'path' => 'assets/js/jQuery.min.js', 
+                'type' => 'script'
             ),
             array(
                 'path' => 'assets/js/mobile.js', 
@@ -101,13 +105,13 @@ class Website_model extends CI_Model{
         $sql = $result->result_array();
         foreach ($sql as $row){
             if(empty($row['image'])){
-               $row['image'] = $this->project_images_replacement; 
+               $row['image'] = $this->_project_images_replacement; 
             }
             
             $return[] = array(
                 'title'       => strtoupper($row['title']),
                 'description' => $row['description'],
-                'image'       => $this->project_images_location . $row['image']
+                'image'       => $this->_project_images_location . $row['image']
             );
         }
     return $return;

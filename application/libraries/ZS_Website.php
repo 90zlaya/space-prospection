@@ -5,23 +5,23 @@ class ZS_Website{
     public $name;
     public $host;
     public $made;
-        
-    public $language         = 'EN';
-    public $description      = 'Simple website';
-    public $keywords         = 'siple, website';
-    public $favoriteIcon     = 'assets/images/favorite_icon.png';
-    public $logo_front       = 'assets/images/logo_front.png';
-    public $logo_inside      = 'assets/images/logo_inside.png';
-    public $creator          = '<a href="https://www.zlatanstajic.com/">Zlatan Stajic</a>';
-    public $creator_name     = 'Zlatan Stajic';
     
-    protected $charset       = 'UTF-8';
-    protected $head          = array();
-    protected $bottom        = array();
-    protected $link          = 'link';
-    protected $script        = 'script';
-    protected $link_custom   = 'link-custom';
-    protected $script_custom = 'script-custom';
+    public $language          = 'EN';
+    public $charset           = 'UTF-8';
+    public $description       = 'Simple website';
+    public $keywords          = 'siple, website';
+    public $favorite_icon     = 'assets/images/favorite_icon.png';
+    public $logo_front        = 'assets/images/logo_front.png';
+    public $logo_inside       = 'assets/images/logo_inside.png';
+    public $creator           = '<a href="https://www.zlatanstajic.com/">Zlatan Stajic</a>';
+    public $creator_name      = 'Zlatan Stajic';
+    
+    protected $_head          = array();
+    protected $_bottom        = array();
+    protected $_link          = 'link';
+    protected $_script        = 'script';
+    protected $_link_custom   = 'link-custom';
+    protected $_script_custom = 'script-custom';
     
     /*------------------------------------------------------------------------*/
     
@@ -34,6 +34,10 @@ class ZS_Website{
             $this->language = $params['language'];
         }
         
+        if( !empty($params['charset']) ){
+            $this->charset = $params['charset'];
+        }
+        
         if( !empty($params['description']) ){
             $this->description = $params['description'];
         }
@@ -42,8 +46,8 @@ class ZS_Website{
             $this->keywords = $params['keywords'];
         }
         
-        if( !empty($params['favoriteIcon']) ){
-            $this->favoriteIcon = $params['favoriteIcon'];
+        if( !empty($params['favorite_icon']) ){
+            $this->favorite_icon = $params['favorite_icon'];
         }
         
         if( !empty($params['logo_front']) ){
@@ -61,17 +65,11 @@ class ZS_Website{
         if( !empty($params['creator_name']) ){
             $this->creator_name = $params['creator_name'];
         }
-    }     
+    }        
     
     /*------------------------------------------------------------------------*/
     
-    public function changeCharset($charset){
-        $this->charset = $charset;
-    }       
-    
-    /*------------------------------------------------------------------------*/
-    
-    public function signature($alwaysMadeYear=false){
+    public function signature($alwaysMadeYear=FALSE){
         $currentYear = date('Y');
         
         if( $currentYear === $this->made or $alwaysMadeYear ){
@@ -91,10 +89,10 @@ class ZS_Website{
         }else{
             foreach($params as $param){
                 if( empty($param['type']) ){
-                    $param['type'] = $this->link;
+                    $param['type'] = $this->_link;
                 }
                 
-                $this->head[] = array(
+                $this->_head[] = array(
                     'path' => $param['path'],
                     'type' => $param['type']
                 );
@@ -110,10 +108,10 @@ class ZS_Website{
         }else{
             foreach($params as $param){
                 if( empty($param['type']) ){
-                    $param['type'] = $this->script;
+                    $param['type'] = $this->_script;
                 }
                 
-                $this->bottom[] = array(
+                $this->_bottom[] = array(
                     'path' => $param['path'],
                     'type' => $param['type']
                 );
@@ -130,7 +128,7 @@ class ZS_Website{
         $return .= '<meta name="description" content="'. $this->name .':' . ' '. $this->description .'">' .PHP_EOL;
         $return .= '<meta name="keywords" content="'. $this->keywords .'">' .PHP_EOL;
         $return .= '<meta name="author" content="'. $this->creator_name .'">' .PHP_EOL;
-        $return .= '<link rel="shortcut icon" href="'. $this->favoriteIcon .'" type="image/png">' .PHP_EOL;
+        $return .= '<link rel="shortcut icon" href="'. $this->favorite_icon .'" type="image/png">' .PHP_EOL;
         
         $return .= '<title>';
             if( empty($title) ){
@@ -141,35 +139,35 @@ class ZS_Website{
         $return .= '</title>' .PHP_EOL;
         
         $return .= '<!-- HEAD -->' .PHP_EOL;
-        if( empty($this->head) ){
+        if( empty($this->_head) ){
             $return .= '<!-- NOT LOADED -->' .PHP_EOL;
         }else{
-            foreach($this->head as $head){
+            foreach($this->_head as $head){
                 switch($head['type']){    
-                    case $this->link:    
+                    case $this->_link:    
                         {
                             $return .= '<link rel="stylesheet" href="';
                             $return .= $head['path'];
                             $return .= '">' .PHP_EOL;
                         }
                     break; 
-                    case $this->script:    
+                    case $this->_script:    
                         {
-                            $return .= '<script type="text/javascript" src="';
+                            $return .= '<script src="';
                             $return .= $head['path'];
                             $return .= '"></script>' .PHP_EOL;
                         }
                     break; 
-                    case $this->link_custom:    
+                    case $this->_link_custom:    
                         {
                             $return .= '<style>';
                             $return .= $head['path'];
                             $return .= '</style>' .PHP_EOL;
                         }
                     break; 
-                    case $this->script_custom:    
+                    case $this->_script_custom:    
                         {
-                            $return .= '<script type="text/javascript">';
+                            $return .= '<script>';
                             $return .= $head['path'];
                             $return .= '</script>' .PHP_EOL;
                         }
@@ -189,16 +187,16 @@ class ZS_Website{
         if( empty($this->bottom) ){
             $return .= '<!-- NOT LOADED -->' .PHP_EOL;
         }else{
-            foreach($this->bottom as $bottom){
+            foreach($this->_bottom as $bottom){
                 switch($bottom['type']){    
-                    case $this->link:    
+                    case $this->_link:    
                         {
                             $return .= '<link rel="stylesheet" href="';
                             $return .= $bottom['path'];
                             $return .= '">' .PHP_EOL;
                         }
                     break; 
-                    case $this->script:    
+                    case $this->_script:    
                         {
                             $return .= '<script src="';
                             $return .= $bottom['path'];
