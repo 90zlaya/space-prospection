@@ -26,7 +26,9 @@ Installation
 
 
 You may find website `online <https://space-prospection.zlatanstajic.com/>`_
-and compare with your own copy. Just change $config['base_url'] in application/config/config.php to your own path. Please note that website uses SQLite3 database, therefore enable it on your php.ini settings and restart your server. Everything else is just magic.
+and compare with your own copy. Just change $config['base_url'] in application/config/config.php to your own path. Please note that website uses SQLite3 database, therefore enable it on your php.ini settings and restart your server. 
+
+If you want to set e-mail messaging in contact form, add your own credentials in controller's submit function. Everything else is just magic.
 
 *******
 License
