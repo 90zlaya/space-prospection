@@ -8,7 +8,7 @@ Space-Prospection is my first website built completely in CodeIgniter framework.
 Release Information
 *******************
 
-This repo contains in-development code for future releases. Note that there may be some bugs and unfixed code.
+This repo contains in-development code. Note that there may be some bugs and unfixed code.
 
 *******************
 Server Requirements

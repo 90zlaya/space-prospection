@@ -64,16 +64,16 @@ class Website_controller extends CI_Controller{
         }
         else{
             // Validation succeeds
-            //get the form data
+            // Get the form data
             $name = $this->input->post('name');
             $from_email = $this->input->post('email');
             $subject = $this->input->post('subject');
             $message = $this->input->post('message');
             
-            //set to_email id to which you want to receive mails
+            // Set to_email id to which you want to receive mails
             $to_email = 'user@gmail.com';
             
-            //configure email settings
+            // Configure email settings
             $config['protocol'] = 'smtp';
             $config['smtp_host'] = 'ssl://smtp.gmail.com'; // change this to yours
             $config['smtp_port'] = '465';
@@ -85,19 +85,19 @@ class Website_controller extends CI_Controller{
             $config['newline'] = "\r\n"; //use double quotes
             $this->email->initialize($config);
             
-            //send mail
+            // Send mail
             $this->email->from($from_email, $name);
             $this->email->to($to_email);
             $this->email->subject($subject);
             $this->email->message($message);
             if ($this->email->send())
             {
-                // mail sent
+                // Mail sent
                 echo "YES";
             }
             else
             {
-                //error
+                // Error
                 echo "NO";
             } 
         }        

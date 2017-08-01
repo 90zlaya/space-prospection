@@ -49,14 +49,13 @@
                         data: form_data,
                         success: function(message){
                             if (message == 'YES'){
-                                //alert('Mail is successfully sent.');
-                                $('#alert-mesage').html('<div class="alert alert-danger">Mail is successfully sent.</div>');
-                            }
-                            else if (message == 'NO'){
-                                //alert('Mail has not been sent!');
-                                $('#alert-mesage').html('<div class="alert alert-danger">Mail has not been sent!</div>');
+                                alert('Mail is successfully sent.');
+                                $('#alert-mesage').html('<div class="alert alert-danger"></div>');
+                            }else if (message == 'NO'){
+                                alert('Mail has not been sent!');
+                                $('#alert-mesage').html('<div class="alert alert-danger"></div>');
                             }else{
-                                alert(message);
+                                //alert(message);
                                 $('#alert-mesage').html('<div class="alert alert-danger">' + message + '</div>');
                             }
                         },
