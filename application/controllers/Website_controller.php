@@ -7,7 +7,7 @@ class Website_controller extends CI_Controller{
     /*------------------------------------------------------------------------*/
     
     public function __construct(){
-        parent::__construct();
+        parent::__construct();                                    
         
         $this->load->model('website_model');
         
@@ -52,10 +52,10 @@ class Website_controller extends CI_Controller{
     /*------------------------------------------------------------------------*/
     public function submit(){
         // Set validation rules
-        $this->form_validation->set_rules('name', 'Name', 'trim|required|xss_clean');
+        $this->form_validation->set_rules('name', 'Name', 'trim|required');
         $this->form_validation->set_rules('email', 'Email', 'trim|required|valid_email');
-        $this->form_validation->set_rules('subject', 'Subject', 'trim|required|xss_clean');
-        $this->form_validation->set_rules('message', 'Message', 'trim|required|xss_clean');
+        $this->form_validation->set_rules('subject', 'Subject', 'trim|required');
+        $this->form_validation->set_rules('message', 'Message', 'trim|required');
         
         // Run validation check
         if ($this->form_validation->run() == FALSE){   
@@ -64,7 +64,6 @@ class Website_controller extends CI_Controller{
         }
         else{
             // Validation succeeds
-            /*
             //get the form data
             $name = $this->input->post('name');
             $from_email = $this->input->post('email');
@@ -100,8 +99,7 @@ class Website_controller extends CI_Controller{
             {
                 //error
                 echo "NO";
-            }
-            */
+            } 
         }        
     }
     

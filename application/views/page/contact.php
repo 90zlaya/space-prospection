@@ -3,33 +3,36 @@
         <div class="contact">
             <h1>Contact</h1>
             <h2>DO NOT HESITATE TO CONTACT US</h2>
-            <form id="contact_us">
+            <form>
                 <input 
                     type="text" 
                     name="name" 
+                    id="name" 
                     value="" 
                     placeholder="Name" 
                 > 
                 <input 
-                    type="text" 
+                    type="text"  
                     name="email" 
+                    id="email" 
                     value="" 
                     placeholder="Email Address" 
                 > 
                 <input 
                     type="text" 
                     name="subject" 
+                    id="subject" 
                     value="" 
                     placeholder="Subject"
                 >
                 <textarea 
                     name="message" 
+                    id="message" 
                     cols="50" 
                     rows="7"
                     placeholder="Message"
                 ></textarea>
                 <input type="button" value="Send" id="submit">
-                <!--<input id="submit" name="submit" type="button" value="Send" />-->
             </form>
             <div id="alert-mesage"></div>
             <script>
@@ -46,17 +49,20 @@
                         data: form_data,
                         success: function(message){
                             if (message == 'YES'){
-                                alert('YES');
+                                //alert('Mail is successfully sent.');
+                                $('#alert-mesage').html('<div class="alert alert-danger">Mail is successfully sent.</div>');
                             }
                             else if (message == 'NO'){
-                                alert('NO');
+                                //alert('Mail has not been sent!');
+                                $('#alert-mesage').html('<div class="alert alert-danger">Mail has not been sent!</div>');
                             }else{
-                                //alert(msg);
+                                alert(message);
                                 $('#alert-mesage').html('<div class="alert alert-danger">' + message + '</div>');
                             }
                         },
                         error: function(){
                           alert('ERROR');
+                          $('#alert-mesage').html('<div class="alert alert-danger">An error occured. Please contact website administrator.</div>');
                         }
                     });
                     return false;
