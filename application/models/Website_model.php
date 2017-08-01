@@ -5,7 +5,7 @@ class Website_model extends CI_Model{
     protected $_project_images_location    = 'assets/images/projects/';
     protected $_project_images_replacement = 'no-image.png';
     
-    /*------------------------------------------------------------------------*/
+    // -------------------------------------------------------------------------
     
     public function website(){
         $params = array(
@@ -44,7 +44,7 @@ class Website_model extends CI_Model{
     );
     }
     
-    /*------------------------------------------------------------------------*/
+    // -------------------------------------------------------------------------
     
     public function navigation(){
         $query = "
@@ -66,7 +66,7 @@ class Website_model extends CI_Model{
     return $return;
     }
     
-    /*------------------------------------------------------------------------*/
+    // -------------------------------------------------------------------------
     
     public function social_links(){
         $query = "
@@ -88,7 +88,7 @@ class Website_model extends CI_Model{
     return $return;
     }
     
-    /*------------------------------------------------------------------------*/
+    // -------------------------------------------------------------------------
     
     public function projects(){
         $query = "
@@ -117,6 +117,6 @@ class Website_model extends CI_Model{
     return $return;
     }
     
-    /*------------------------------------------------------------------------*/
+    // -------------------------------------------------------------------------
 }    
 ?>

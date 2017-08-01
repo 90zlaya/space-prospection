@@ -3,6 +3,16 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 /*
 |--------------------------------------------------------------------------
+| Admin Email
+|--------------------------------------------------------------------------
+|
+| This will be default address for contacting admin/webmaster
+|
+*/
+defined('EMAIL_ADMIN') OR define('EMAIL_ADMIN', 'user@gmail.com');
+
+/*
+|--------------------------------------------------------------------------
 | Display Debug backtrace
 |--------------------------------------------------------------------------
 |

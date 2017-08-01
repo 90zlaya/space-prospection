@@ -44,7 +44,7 @@
                         message: $('#message').val()
                     };
                     $.ajax({
-                        url: '<?php echo site_url('submit'); ?>',
+                        url: '<?php echo site_url('ajax/submit/contact_form'); ?>',
                         type: 'POST',
                         data: form_data,
                         success: function(message){
@@ -60,8 +60,7 @@
                             }
                         },
                         error: function(){
-                          alert('ERROR');
-                          $('#alert-mesage').html('<div class="alert alert-danger">An error occured. Please contact website administrator.</div>');
+                            alert('ERROR');
                         }
                     });
                     return false;
