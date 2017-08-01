@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class ZS_Website{
+class Zs_website{
     public $name;
     public $host;
     public $made;
