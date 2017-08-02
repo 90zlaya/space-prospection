@@ -25,56 +25,70 @@ class Zs_website{
     
     // -------------------------------------------------------------------------
     
-    public function __construct($params){
+    public function __construct($params)
+    {
         $this->name = $params['name'];
         $this->host = $params['host'];
         $this->made = $params['made'];
         
-        if( !empty($params['language']) ){
+        if(!empty($params['language']))
+        {
             $this->language = $params['language'];
         }
         
-        if( !empty($params['charset']) ){
+        if(!empty($params['charset']))
+        {
             $this->charset = $params['charset'];
         }
         
-        if( !empty($params['description']) ){
+        if(!empty($params['description']))
+        {
             $this->description = $params['description'];
         }
         
-        if( !empty($params['keywords']) ){
+        if(!empty($params['keywords']))
+        {
             $this->keywords = $params['keywords'];
         }
         
-        if( !empty($params['favorite_icon']) ){
+        if(!empty($params['favorite_icon']))
+        {
             $this->favorite_icon = $params['favorite_icon'];
         }
         
-        if( !empty($params['logo_front']) ){
+        if(!empty($params['logo_front']))
+        {
             $this->logo_front = $params['logo_front'];
         }
         
-        if( !empty($params['logo_inside']) ){
+        if(!empty($params['logo_inside']))
+        {
             $this->logo_inside = $params['logo_inside'];
         }
         
-        if( !empty($params['creator']) ){
+        if(!empty($params['creator']))
+        {
             $this->creator = $params['creator'];
         }
         
-        if( !empty($params['creator_name']) ){
+        if(!empty($params['creator_name']))
+        {
             $this->creator_name = $params['creator_name'];
         }
     }        
     
     // -------------------------------------------------------------------------
     
-    public function signature($alwaysMadeYear=FALSE){
+    public function signature($alwaysMadeYear=FALSE)
+    {
         $currentYear = date('Y');
         
-        if( $currentYear === $this->made or $alwaysMadeYear ){
+        if($currentYear === $this->made OR $alwaysMadeYear)
+        {
             $since = $currentYear;
-        }else{
+        }
+        else
+        {
             $since = $this->made .'-'. $currentYear;
         }
         
@@ -83,12 +97,14 @@ class Zs_website{
         
     // -------------------------------------------------------------------------
     
-    public function add_to_head($params){
-        if( empty($params) ){
-            // Case when there is no parameters to load in head
-        }else{
-            foreach($params as $param){
-                if( empty($param['type']) ){
+    public function add_to_head($params)
+    {
+        if(!empty($params))
+        {
+            foreach($params as $param)
+            {
+                if(empty($param['type']))
+                {
                     $param['type'] = $this->_link;
                 }
                 
@@ -103,11 +119,12 @@ class Zs_website{
     // -------------------------------------------------------------------------
     
     public function add_to_bottom($params){
-        if( empty($params) ){
-            // Case when there is no parameters to load in bottom
-        }else{
-            foreach($params as $param){
-                if( empty($param['type']) ){
+        if(empty($params))
+        {
+            foreach($params as $param)
+            {
+                if(empty($param['type']))
+                {
                     $param['type'] = $this->_script;
                 }
                 
@@ -131,19 +148,27 @@ class Zs_website{
         $return .= '<link rel="shortcut icon" href="'. $this->favorite_icon .'" type="image/png">' .PHP_EOL;
         
         $return .= '<title>';
-            if( empty($title) ){
+            if(empty($title))
+            {
                 $return .= $this->name;
-            }else{
+            }
+            else
+            {
                 $return .= $title;
             }
         $return .= '</title>' .PHP_EOL;
         
         $return .= '<!-- HEAD -->' .PHP_EOL;
-        if( empty($this->_head) ){
+        if(empty($this->_head))
+        {
             $return .= '<!-- NOT LOADED -->' .PHP_EOL;
-        }else{
-            foreach($this->_head as $head){
-                switch($head['type']){    
+        }
+        else
+        {
+            foreach($this->_head as $head)
+            {
+                switch($head['type'])
+                {
                     case $this->_link:    
                         {
                             $return .= '<link rel="stylesheet" href="';
@@ -182,13 +207,19 @@ class Zs_website{
     
     // -------------------------------------------------------------------------
     
-    public function bottom(){
+    public function bottom()
+    {
         $return = '<!-- BOTTOM -->' .PHP_EOL;
-        if( empty($this->bottom) ){
+        if(empty($this->bottom))
+        {
             $return .= '<!-- NOT LOADED -->' .PHP_EOL;
-        }else{
-            foreach($this->_bottom as $bottom){
-                switch($bottom['type']){    
+        }
+        else
+        {
+            foreach($this->_bottom as $bottom)
+            {
+                switch($bottom['type'])
+                {
                     case $this->_link:    
                         {
                             $return .= '<link rel="stylesheet" href="';
@@ -212,11 +243,12 @@ class Zs_website{
     
     // -------------------------------------------------------------------------
     
-    public function redirect_to_page($page){
+    public function redirect_to_page($page)
+    {
         header('Location: '. $page .'');
         exit();
         
-        echo '    
+        echo '
             <!doctype html>
             <html lang="en-US">
                 <head>

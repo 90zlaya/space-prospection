@@ -1254,7 +1254,6 @@ img {
 	margin: 0 0 29px;
 	padding: 0 0 0 20px;
 	text-align: left;
-	text-transform: uppercase;
 	width: 441px;
 }
 #body .header div form textarea {
@@ -1272,7 +1271,6 @@ img {
 	padding: 15px 0 0 20px;
 	resize: none;
 	text-align: left;
-	text-transform: uppercase;
 	width: 441px;
 }
 #body .header div form input#submit {

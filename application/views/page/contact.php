@@ -36,33 +36,51 @@
             </form>
             <div id="alert-mesage"></div>
             <script>
-                $('#submit').click(function(){  
+                $('#submit').click(function()
+                {
                     var form_data = {
                         name:    $('#name').val(),
                         email:   $('#email').val(),
                         subject: $('#subject').val(),
                         message: $('#message').val()
                     };
-                    $.ajax({
-                        url: '<?php echo site_url('ajax/submit/contact_form'); ?>',
+                    $.ajax(
+                    {
+                        url: '<?=site_url('ajax/submit/contact_form');?>',
                         type: 'POST',
                         data: form_data,
-                        success: function(message){
-                            if (message == 'YES'){
+                        success: function(message)
+                        {
+                            if (message == 'YES')
+                            {
                                 alert('Mail is successfully sent.');
                                 $('#alert-mesage').html('<div class="alert alert-danger"></div>');
-                            }else if (message == 'NO'){
+                                $('#name').val(''),
+                                $('#email').val(''),
+                                $('#subject').val(''),
+                                $('#message').val('')
+                            }
+                            else if (message == 'NO')
+                            {
                                 alert('Mail has not been sent!');
                                 $('#alert-mesage').html('<div class="alert alert-danger"></div>');
-                            }else{
+                                $('#name').val(''),
+                                $('#email').val(''),
+                                $('#subject').val(''),
+                                $('#message').val('')
+                            }
+                            else
+                            {
                                 //alert(message);
                                 $('#alert-mesage').html('<div class="alert alert-danger">' + message + '</div>');
                             }
                         },
-                        error: function(){
+                        error: function()
+                        {
                             alert('ERROR');
                         }
-                    });
+                    }
+                    );
                     return false;
                 });
             </script>

@@ -7,7 +7,8 @@ class Website_model extends CI_Model{
     
     // -------------------------------------------------------------------------
     
-    public function website(){
+    public function website()
+    {
         $params = array(
             'name'          => 'Space Prospection', 
             'host'          => base_url(),
@@ -46,7 +47,8 @@ class Website_model extends CI_Model{
     
     // -------------------------------------------------------------------------
     
-    public function navigation(){
+    public function navigation()
+    {
         $query = "
             SELECT nav.id
                 ,nav.name
@@ -57,7 +59,8 @@ class Website_model extends CI_Model{
         ";
         $result = $this->db->query($query);
         $sql = $result->result_array();
-        foreach ($sql as $row){
+        foreach ($sql as $row)
+        {
             $return[] = array(
                 'name'  => $row['name'],
                 'link'  => $row['link']
@@ -68,7 +71,8 @@ class Website_model extends CI_Model{
     
     // -------------------------------------------------------------------------
     
-    public function social_links(){
+    public function social_links()
+    {
         $query = "
             SELECT sl.id
                 ,sl.name
@@ -79,7 +83,8 @@ class Website_model extends CI_Model{
         ";
         $result = $this->db->query($query);
         $sql = $result->result_array();
-        foreach ($sql as $row){
+        foreach ($sql as $row)
+        {
             $return[] = array(
                 'name'  => $row['name'],
                 'link'  => $row['link']
@@ -90,7 +95,13 @@ class Website_model extends CI_Model{
     
     // -------------------------------------------------------------------------
     
-    public function projects(){
+    /**
+    * Returns only last 5 rows
+    * This is about to be changed when pagination is implemented
+    *
+    */
+    public function projects()
+    {
         $query = "
             SELECT pr.id
                 ,pr.title
@@ -103,8 +114,10 @@ class Website_model extends CI_Model{
         ";
         $result = $this->db->query($query);
         $sql = $result->result_array();
-        foreach ($sql as $row){
-            if(empty($row['image'])){
+        foreach ($sql as $row)
+        {
+            if(empty($row['image']))
+            {
                $row['image'] = $this->_project_images_replacement; 
             }
             

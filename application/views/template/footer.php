@@ -4,7 +4,8 @@
                     <h1>FOLLOW OUR MISSIONS ON</h1>
                     <div>
                         <?php
-                            foreach($socials as $social){
+                            foreach($socials as $social)
+                            {
                                 echo '<a href="'. $social['link'] .'" class="'. $social['name'] .'" target="_blank"></a>';
                             }
                         ?>
@@ -13,7 +14,7 @@
             </div>
             <div class="footnote">
                 <div>
-                    <p><?php echo $website['signature']; ?></p>
+                    <p><?=$website['signature'];?></p>
                 </div>
             </div>
         </div>

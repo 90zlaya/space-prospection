@@ -1,26 +1,28 @@
 <!doctype html>
 <html>
 <head>
-    <?php
-        echo $website['head'];
-    ?>
+    <?=$website['head'];?>
 </head>
 <body>
     <div id="page"> 
         <div id="header">
             <div>
                 <a 
-                    href="<?php echo base_url(); ?>" 
+                    href="<?=base_url();?>" 
                     class="logo">
-                    <img src="<?php echo $website['logo']; ?>" 
+                    <img src="<?=$website['logo'];?>" 
                     alt=""
                 ></a>
                 <ul id="navigation">
                     <?php
-                        foreach($navigation as $segment){
-                            if( $this->uri->segment(1) == $segment['link'] ){
+                        foreach($navigation as $segment)
+                        {
+                            if($this->uri->segment(1) == $segment['link'])
+                            {
                                 $class = 'class="selected"';
-                            }else{
+                            }
+                            else
+                            {
                                 $class = '';
                             }
                             

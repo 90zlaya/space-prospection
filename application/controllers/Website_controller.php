@@ -6,10 +6,9 @@ class Website_controller extends CI_Controller{
     
     // -------------------------------------------------------------------------
     
-    public function __construct(){
+    public function __construct()
+    {
         parent::__construct();                                    
-        
-        $this->load->model('website_model');
         
         $this->_data['website']    = $this->website_model->website();
         $this->_data['socials']    = $this->website_model->social_links();
@@ -18,14 +17,17 @@ class Website_controller extends CI_Controller{
     
     // -------------------------------------------------------------------------
     
-    public function index(){
-        $this->load->view('template/header', $this->_data);$this->load->view('page/index');
+    public function index()
+    {
+        $this->load->view('template/header', $this->_data);
+        $this->load->view('page/index');
         $this->load->view('template/footer', $this->_data);
     }
     
     // -------------------------------------------------------------------------
     
-    public function about(){
+    public function about()
+    {
         $this->load->view('template/header', $this->_data);
         $this->load->view('page/about');
         $this->load->view('template/footer', $this->_data);
@@ -33,7 +35,8 @@ class Website_controller extends CI_Controller{
     
     // -------------------------------------------------------------------------
     
-    public function projects(){
+    public function projects()
+    {
         $data['projects'] = $this->website_model->projects();
         
         $this->load->view('template/header', $this->_data);
@@ -43,7 +46,8 @@ class Website_controller extends CI_Controller{
     
     // -------------------------------------------------------------------------
     
-    public function contact(){
+    public function contact()
+    {
         $this->load->view('template/header', $this->_data);
         $this->load->view('page/contact');
         $this->load->view('template/footer', $this->_data);
