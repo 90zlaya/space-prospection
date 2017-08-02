@@ -118,7 +118,8 @@ class Zs_website{
     
     // -------------------------------------------------------------------------
     
-    public function add_to_bottom($params){
+    public function add_to_bottom($params)
+    {
         if(empty($params))
         {
             foreach($params as $param)
@@ -138,7 +139,8 @@ class Zs_website{
     
     // -------------------------------------------------------------------------
     
-    public function head($title=''){
+    public function head($title='')
+    {
         $return  = '<meta http-equiv="Content-Type" content="text/html; charset='. $this->charset .'">' .PHP_EOL;
         $return .= '<meta http-equiv="X-UA-Compatible" content="IE=edge">' .PHP_EOL;
         $return .= '<meta name="viewport" content="width=device-width, initial-scale=1">' .PHP_EOL;
