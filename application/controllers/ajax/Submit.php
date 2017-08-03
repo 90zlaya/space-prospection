@@ -5,7 +5,7 @@ class Submit extends CI_Controller{
     
     // -------------------------------------------------------------------------
     
-    public function contact_form()
+    public function contact_us()
     {
         $this->form_validation->set_rules('name', 'Name', 'trim|required|callback_alpha_space_only');
         $this->form_validation->set_rules('email', 'Email', 'trim|required|valid_email');
