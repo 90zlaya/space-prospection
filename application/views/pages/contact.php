@@ -3,47 +3,39 @@
         <div class="contact">
             <h1>Contact</h1>
             <h2>DO NOT HESITATE TO CONTACT US</h2>
-            <form>
+            <form id='contact_us'>
                 <input 
                     type="text" 
                     name="name" 
-                    id="name" 
-                    value="" 
+                    class="contact-input" 
                     placeholder="Name" 
                 > 
                 <input 
                     type="text"  
                     name="email" 
-                    id="email" 
-                    value="" 
+                    class="contact-input" 
                     placeholder="Email Address" 
                 > 
                 <input 
                     type="text" 
                     name="subject" 
-                    id="subject" 
-                    value="" 
+                    class="contact-input" 
                     placeholder="Subject"
                 >
                 <textarea 
                     name="message" 
-                    id="message" 
+                    class="contact-input" 
                     cols="50" 
                     rows="7"
                     placeholder="Message"
                 ></textarea>
-                <input type="button" value="Send" id="submit">
+                <input type="submit" value="Send" id="submit">
             </form>
             <div id="alert-mesage"></div>
             <script>
-                $('#submit').click(function()
+                $('form#contact_us').submit(function()
                 {
-                    var form_data = {
-                        name:    $('#name').val(),
-                        email:   $('#email').val(),
-                        subject: $('#subject').val(),
-                        message: $('#message').val()
-                    };
+                    var form_data = $(this).serialize();
                     $.ajax(
                     {
                         url: '<?=site_url('ajax/submit/contact_form');?>',
@@ -54,20 +46,14 @@
                             if(message == 'YES')
                             {
                                 alert('Mail is successfully sent.');
-                                $('#alert-mesage').html('<div class="alert alert-danger"></div>');
-                                $('#name').val('');
-                                $('#email').val('');
-                                $('#subject').val('');
-                                $('#message').val('');
+                                $('#alert-mesage').html('');
+                                $('.contact-input').val('');
                             }
-                            else if (message == 'NO')
+                            else if(message == 'NO')
                             {
                                 alert('Mail has not been sent!');
-                                $('#alert-mesage').html('<div class="alert alert-danger"></div>');
-                                $('#name').val('');
-                                $('#email').val('');
-                                $('#subject').val('');
-                                $('#message').val(''); 
+                                $('#alert-mesage').html('');
+                                $('.contact-input').val('');
                             }
                             else
                             {
