@@ -19,18 +19,18 @@ class Website_controller extends CI_Controller{
     
     public function index()
     {
-        $this->load->view('template/header', $this->_data);
-        $this->load->view('page/index');
-        $this->load->view('template/footer', $this->_data);
+        $this->load->view('templates/header', $this->_data);
+        $this->load->view('pages/index');
+        $this->load->view('templates/footer', $this->_data);
     }
     
     // -------------------------------------------------------------------------
     
     public function about()
     {
-        $this->load->view('template/header', $this->_data);
-        $this->load->view('page/about');
-        $this->load->view('template/footer', $this->_data);
+        $this->load->view('templates/header', $this->_data);
+        $this->load->view('pages/about');
+        $this->load->view('templates/footer', $this->_data);
     }
     
     // -------------------------------------------------------------------------
@@ -39,18 +39,18 @@ class Website_controller extends CI_Controller{
     {
         $data['projects'] = $this->website_model->projects();
         
-        $this->load->view('template/header', $this->_data);
-        $this->load->view('page/projects', $data);
-        $this->load->view('template/footer', $this->_data);
+        $this->load->view('templates/header', $this->_data);
+        $this->load->view('pages/projects', $data);
+        $this->load->view('templates/footer', $this->_data);
     }
     
     // -------------------------------------------------------------------------
     
     public function contact()
     {
-        $this->load->view('template/header', $this->_data);
-        $this->load->view('page/contact');
-        $this->load->view('template/footer', $this->_data);
+        $this->load->view('templates/header', $this->_data);
+        $this->load->view('pages/contact');
+        $this->load->view('templates/footer', $this->_data);
     }
     
     // -------------------------------------------------------------------------

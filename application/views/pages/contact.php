@@ -51,23 +51,23 @@
                         data: form_data,
                         success: function(message)
                         {
-                            if (message == 'YES')
+                            if(message == 'YES')
                             {
                                 alert('Mail is successfully sent.');
                                 $('#alert-mesage').html('<div class="alert alert-danger"></div>');
-                                $('#name').val(''),
-                                $('#email').val(''),
-                                $('#subject').val(''),
-                                $('#message').val('')
+                                $('#name').val('');
+                                $('#email').val('');
+                                $('#subject').val('');
+                                $('#message').val('');
                             }
                             else if (message == 'NO')
                             {
                                 alert('Mail has not been sent!');
                                 $('#alert-mesage').html('<div class="alert alert-danger"></div>');
-                                $('#name').val(''),
-                                $('#email').val(''),
-                                $('#subject').val(''),
-                                $('#message').val('')
+                                $('#name').val('');
+                                $('#email').val('');
+                                $('#subject').val('');
+                                $('#message').val(''); 
                             }
                             else
                             {
