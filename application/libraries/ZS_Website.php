@@ -1,6 +1,12 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
+/**
+* Use this class when working with website related data.
+* 
+* Instantiate it only once (great solution is Singleton design patern) 
+* and call parameters and methods across entire website.
+*/
 class Zs_website{
     public $name;
     public $host;
@@ -25,6 +31,11 @@ class Zs_website{
     
     // -------------------------------------------------------------------------
     
+    /**
+    * Class constructor method
+    *
+    * @param Array $params
+    */
     public function __construct($params)
     {
         $this->name = $params['name'];
@@ -79,17 +90,25 @@ class Zs_website{
     
     // -------------------------------------------------------------------------
     
-    public function signature($alwaysMadeYear=FALSE)
+    /**
+    * Footer signature of creator and year when it was made
+    * 
+    * When you want year span (eg. 2007-2017) set first parameter
+    * to function as TRUE.
+    * 
+    * @param boolean $always_made_year
+    */
+    public function signature($always_made_year=FALSE)
     {
-        $currentYear = date('Y');
+        $current_year = date('Y');
         
-        if($currentYear === $this->made OR $alwaysMadeYear)
+        if($current_year === $this->made OR $always_made_year)
         {
-            $since = $currentYear;
+            $since = $current_year;
         }
         else
         {
-            $since = $this->made .'-'. $currentYear;
+            $since = $this->made .'-'. $current_year;
         }
         
     return 'Copyright &#169; '. $since .' | '. $this->creator .' | All Rights Reserved';
@@ -97,6 +116,13 @@ class Zs_website{
         
     // -------------------------------------------------------------------------
     
+    /**
+    * Adding css and javascript tags to head of html
+    * 
+    * Custom tags are also allowed.
+    * 
+    * @param Array $params
+    */
     public function add_to_head($params)
     {
         if(!empty($params))
@@ -118,6 +144,11 @@ class Zs_website{
     
     // -------------------------------------------------------------------------
     
+    /**
+    * Adding css and javascript tags to bottom of html
+    * 
+    * @param Array $params
+    */
     public function add_to_bottom($params)
     {
         if(empty($params))
@@ -139,6 +170,16 @@ class Zs_website{
     
     // -------------------------------------------------------------------------
     
+    /**
+    * Printing values for <head> tag of html
+    * 
+    * It's enough only to call this method inside 
+    * entire <head> tag if properly initialised.
+    * 
+    * If custom page title is not passed, it will access global website name.
+    * 
+    * @param String $title
+    */
     public function head($title='')
     {
         $return  = '<meta http-equiv="Content-Type" content="text/html; charset='. $this->charset .'">' .PHP_EOL;
@@ -209,6 +250,10 @@ class Zs_website{
     
     // -------------------------------------------------------------------------
     
+    /**
+    * Printing values somewhere in bottom of html
+    * 
+    */
     public function bottom()
     {
         $return = '<!-- BOTTOM -->' .PHP_EOL;
@@ -245,6 +290,11 @@ class Zs_website{
     
     // -------------------------------------------------------------------------
     
+    /**
+    * Page redirection
+    * 
+    * @param String $page
+    */
     public function redirect_to_page($page)
     {
         header('Location: '. $page .'');
