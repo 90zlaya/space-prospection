@@ -8,7 +8,10 @@ Space-Prospection is my first website built completely in CodeIgniter framework.
 *******************
 How it looks like
 *******************
-![Space-Prospection](http://link.zlatanstajic.com/images/portfolio/space-prospection.jpg "Space-Prospection Preview")
+.. figure:: http://link.zlatanstajic.com/images/portfolio/space-prospection.jpg
+:align: center
+
+**pace-Prospection Homepage.**
 
 *******************
 Release Information
