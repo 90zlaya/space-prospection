@@ -7,12 +7,7 @@ class Submit extends CI_Controller{
     
     public function contact_us()
     {
-        $this->form_validation->set_rules('name', 'Name', 'trim|required|callback_alpha_space_only');
-        $this->form_validation->set_rules('email', 'Email', 'trim|required|valid_email');
-        $this->form_validation->set_rules('subject', 'Subject', 'trim|required');
-        $this->form_validation->set_rules('message', 'Message', 'trim|required');
-        
-        if ($this->form_validation->run() == FALSE)
+        if ($this->form_validation->run('contact_us') == FALSE)
         {
             echo validation_errors();
         }
@@ -43,13 +38,13 @@ class Submit extends CI_Controller{
     /**
     * Custom validation function to accept alphabets and space
     * 
-    * @param mixed $string
+    * @param String $string
     */
     public function alpha_space_only($string)
     {
         if(!empty($string))
         {
-            if (!preg_match("/^[a-zA-Z ]+$/",$string))
+            if (!preg_match("/^[a-zA-Z ]+$/", $string))
             {
                 $this->form_validation->set_message('alpha_space_only', 'The %s field must contain only alphabets and space');
                 return FALSE;
