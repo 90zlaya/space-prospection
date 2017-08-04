@@ -39,9 +39,10 @@ class Website_model extends CI_Model{
         );
         $this->zs_website->add_to_head($params);
     return array(
-        'signature' => $this->zs_website->signature(TRUE),
-        'head'      => $this->zs_website->head(),
-        'logo'      => $this->zs_website->logo_front
+        'signature'        => $this->zs_website->signature(TRUE),
+        'signature_hidden' => $this->zs_website->signature_hidden(),
+        'head'             => $this->zs_website->head(),
+        'logo'             => $this->zs_website->logo_front
     );
     }
     

@@ -4,7 +4,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 /**
 * Use this class when working with website related data.
 * 
-* Instantiate it only once (great solution is Singleton design patern) 
+* Instantiate it only once (great solution is Singleton design pattern) 
 * and call parameters and methods across entire website.
 */
 class Zs_website{
@@ -21,6 +21,7 @@ class Zs_website{
     public $logo_inside       = 'assets/images/logo_inside.png';
     public $creator           = '<a href="https://www.zlatanstajic.com/">Zlatan Stajic</a>';
     public $creator_name      = 'Zlatan Stajic';
+    public $creator_website   = 'https://www.zlatanstajic.com/';
     
     protected $_head          = array();
     protected $_bottom        = array();
@@ -93,8 +94,8 @@ class Zs_website{
     /**
     * Footer signature of creator and year when it was made
     * 
-    * When you want year span (eg. 2007-2017) set first parameter
-    * to function as TRUE.
+    * When you want year span (eg. 2007-2017) set 
+    * first method parameter as TRUE.
     * 
     * @param boolean $always_made_year
     */
@@ -108,11 +109,41 @@ class Zs_website{
         }
         else
         {
-            $since = $this->made .'-'. $current_year;
+            $since = $this->made . '-' . $current_year;
         }
         
-    return 'Copyright &#169; '. $since .' | '. $this->creator .' | All Rights Reserved';
-    }   
+    return 'Copyright &#169; ' . $since . ' | ' . $this->creator . ' | All Rights Reserved';
+    }
+    
+    // -------------------------------------------------------------------------
+    
+    /**
+    * Adds html comment to page view-source
+    * 
+    * If language parameter is not passed to method, 
+    * default website language comment will be shown.
+    * 
+    * @param String $language
+    */
+    public function signature_hidden($language='')
+    {
+        if(empty($language))
+        {
+            $language = $this->language;
+        }
+        
+        $signature_hidden = '<!-- ';
+        switch($language)
+        {
+            case 'EN':
+                {
+                    $signature_hidden .= 'Proudly built by: ' . $this->creator_name . '; Find me on ' . $this->creator_website;
+                } break;
+            default: $signature_hidden .= 'Ponosno izradio: ' . $this->creator_name . '; Pronadjite me na ' . $this->creator_website;
+        }
+        $signature_hidden .=  ' -->' . PHP_EOL;
+    return $signature_hidden;
+    } 
         
     // -------------------------------------------------------------------------
     
@@ -147,6 +178,8 @@ class Zs_website{
     /**
     * Adding css and javascript tags to bottom of html
     * 
+    * Custom tags are also allowed.
+    * 
     * @param Array $params
     */
     public function add_to_bottom($params)
@@ -173,7 +206,7 @@ class Zs_website{
     /**
     * Printing values for <head> tag of html
     * 
-    * It's enough only to call this method inside 
+    * It's enough only to echo this method inside 
     * entire <head> tag if properly initialised.
     * 
     * If custom page title is not passed, it will access global website name.
@@ -182,13 +215,13 @@ class Zs_website{
     */
     public function head($title='')
     {
-        $return  = '<meta http-equiv="Content-Type" content="text/html; charset='. $this->charset .'">' .PHP_EOL;
-        $return .= '<meta http-equiv="X-UA-Compatible" content="IE=edge">' .PHP_EOL;
-        $return .= '<meta name="viewport" content="width=device-width, initial-scale=1">' .PHP_EOL;
-        $return .= '<meta name="description" content="'. $this->name .':' . ' '. $this->description .'">' .PHP_EOL;
-        $return .= '<meta name="keywords" content="'. $this->keywords .'">' .PHP_EOL;
-        $return .= '<meta name="author" content="'. $this->creator_name .'">' .PHP_EOL;
-        $return .= '<link rel="shortcut icon" href="'. $this->favorite_icon .'" type="image/png">' .PHP_EOL;
+        $return  = '<meta http-equiv="Content-Type" content="text/html; charset=' . $this->charset . '">' . PHP_EOL;
+        $return .= '<meta http-equiv="X-UA-Compatible" content="IE=edge">' . PHP_EOL;
+        $return .= '<meta name="viewport" content="width=device-width, initial-scale=1">' . PHP_EOL;
+        $return .= '<meta name="description" content="' . $this->name . ':' . ' ' . $this->description . '">' . PHP_EOL;
+        $return .= '<meta name="keywords" content="' . $this->keywords . '">' . PHP_EOL;
+        $return .= '<meta name="author" content="' . $this->creator_name . '">' . PHP_EOL;
+        $return .= '<link rel="shortcut icon" href="' . $this->favorite_icon . '" type="image/png">' . PHP_EOL;
         
         $return .= '<title>';
             if(empty($title))
@@ -199,12 +232,12 @@ class Zs_website{
             {
                 $return .= $title;
             }
-        $return .= '</title>' .PHP_EOL;
+        $return .= '</title>' . PHP_EOL;
         
-        $return .= '<!-- HEAD -->' .PHP_EOL;
+        $return .= '<!-- HEAD -->' . PHP_EOL;
         if(empty($this->_head))
         {
-            $return .= '<!-- NOT LOADED -->' .PHP_EOL;
+            $return .= '<!-- NOT LOADED -->' . PHP_EOL;
         }
         else
         {
@@ -216,34 +249,34 @@ class Zs_website{
                         {
                             $return .= '<link rel="stylesheet" href="';
                             $return .= $head['path'];
-                            $return .= '">' .PHP_EOL;
+                            $return .= '">' . PHP_EOL;
                         }
                     break; 
                     case $this->_script:    
                         {
                             $return .= '<script src="';
                             $return .= $head['path'];
-                            $return .= '"></script>' .PHP_EOL;
+                            $return .= '"></script>' . PHP_EOL;
                         }
                     break; 
                     case $this->_link_custom:    
                         {
                             $return .= '<style>';
                             $return .= $head['path'];
-                            $return .= '</style>' .PHP_EOL;
+                            $return .= '</style>' . PHP_EOL;
                         }
                     break; 
                     case $this->_script_custom:    
                         {
                             $return .= '<script>';
                             $return .= $head['path'];
-                            $return .= '</script>' .PHP_EOL;
+                            $return .= '</script>' . PHP_EOL;
                         }
                     break;    
                 }    
             }
         }
-        $return .= '<!-- /HEAD -->' .PHP_EOL;
+        $return .= '<!-- /HEAD -->' . PHP_EOL;
         
     return $return;
     }   
@@ -256,10 +289,10 @@ class Zs_website{
     */
     public function bottom()
     {
-        $return = '<!-- BOTTOM -->' .PHP_EOL;
+        $return = '<!-- BOTTOM -->' . PHP_EOL;
         if(empty($this->bottom))
         {
-            $return .= '<!-- NOT LOADED -->' .PHP_EOL;
+            $return .= '<!-- NOT LOADED -->' . PHP_EOL;
         }
         else
         {
@@ -271,20 +304,34 @@ class Zs_website{
                         {
                             $return .= '<link rel="stylesheet" href="';
                             $return .= $bottom['path'];
-                            $return .= '">' .PHP_EOL;
+                            $return .= '">' . PHP_EOL;
                         }
-                    break; 
+                    break;
                     case $this->_script:    
                         {
                             $return .= '<script src="';
                             $return .= $bottom['path'];
-                            $return .= '"></script>' .PHP_EOL;
+                            $return .= '"></script>' . PHP_EOL;
                         }
-                    break;    
+                    break;
+                    case $this->_link_custom:    
+                        {
+                            $return .= '<style>';
+                            $return .= $bottom['path'];
+                            $return .= '</style>' . PHP_EOL;
+                        }
+                    break;
+                    case $this->_script_custom:    
+                        {
+                            $return .= '<script>';
+                            $return .= $bottom['path'];
+                            $return .= '</script>' . PHP_EOL;
+                        }
+                    break;
                 }   
             }
         }
-        $return .= '<!-- /BOTTOM -->' .PHP_EOL;
+        $return .= '<!-- /BOTTOM -->' . PHP_EOL;
     return $return;
     }
     
@@ -297,7 +344,7 @@ class Zs_website{
     */
     public function redirect_to_page($page)
     {
-        header('Location: '. $page .'');
+        header('Location: ' . $page . '');
         exit();
         
         echo '
@@ -305,14 +352,14 @@ class Zs_website{
             <html lang="en-US">
                 <head>
                     <meta charset="UTF-8">
-                    <meta http-equiv="refresh" content="1; url='. $this->host .'">
+                    <meta http-equiv="refresh" content="1; url=' . $this->host . '">
                     <script>
-                        window.location.href = "'. $this->host .'";
+                        window.location.href = "' . $this->host . '";
                     </script>
                     <title>Page Redirection</title>
                 </head>
                 <body>
-                    If you are not redirected automatically, follow this <a href="'. $this->host . $page .'">link to '. $this->name .'</a>.
+                    If you are not redirected automatically, follow this <a href="' . $this->host . $page . '">link to ' . $this->name . '</a>.
                 </body>
             </html>
         ';            

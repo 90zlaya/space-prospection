@@ -15,6 +15,7 @@
             <div class="footnote">
                 <div>
                     <p><?=$website['signature'];?></p>
+                    <?=$website['signature_hidden'];?>
                 </div>
             </div>
         </div>
