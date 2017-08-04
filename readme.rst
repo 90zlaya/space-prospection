@@ -9,9 +9,6 @@ How it looks like
 ###################
 
 .. figure:: http://link.zlatanstajic.com/images/portfolio/space-prospection.jpg
-:align: center
-
-**pace-Prospection Homepage.**
 
 ###################
 Release Information
