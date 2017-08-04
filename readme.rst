@@ -4,6 +4,12 @@ What is Space-Prospection
 
 Space-Prospection is my first website built completely in CodeIgniter framework. Content and purpose of this website is completely made up, I just want to demonstrate building website in MVC structure and other OOP related skills and help other Web Developers teaching themselves this awesome PHP framework.
 
+
+*******************
+How it looks like
+*******************
+![Space-Prospection](http://link.zlatanstajic.com/images/portfolio/space-prospection.jpg "Space-Prospection Preview")
+
 *******************
 Release Information
 *******************
