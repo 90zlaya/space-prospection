@@ -2,7 +2,7 @@
     <div class="header">
         <div class="contact">
             <h1>Contact</h1>
-            <h2>DO NOT HESITATE TO CONTACT US NOW</h2>
+            <h2>DO NOT HESITATE TO CONTACT US</h2>
             <form id='contact_us'>
                 <input 
                     type="text" 
