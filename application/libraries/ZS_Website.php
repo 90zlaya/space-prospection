@@ -7,7 +7,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 * Instantiate it only once (great solution is Singleton design pattern) 
 * and call parameters and methods across entire website.
 */
-class Zs_website{
+class ZS_Website{
     public $name;
     public $host;
     public $made;

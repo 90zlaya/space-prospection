@@ -1,33 +1,33 @@
 <div id="body">
     <div class="header">
         <div class="contact">
-            <h1>Contact</h1>
-            <h2>DO NOT HESITATE TO CONTACT US</h2>
+            <h1><?=$lang['contact_page_name'];?></h1>
+            <h2><?=$lang['contact_short_message'];?></h2>
             <form id='contact_us'>
                 <input 
                     type="text" 
                     name="name" 
                     class="contact-input" 
-                    placeholder="Name" 
+                    placeholder="<?=$lang['contact_placeholder_name'];?>" 
                 > 
                 <input 
                     type="text"  
                     name="email" 
                     class="contact-input" 
-                    placeholder="Email Address" 
+                    placeholder="<?=$lang['contact_placeholder_email'];?>" 
                 > 
                 <input 
                     type="text" 
                     name="subject" 
                     class="contact-input" 
-                    placeholder="Subject"
+                    placeholder="<?=$lang['contact_placeholder_subject'];?>"
                 >
                 <textarea 
                     name="message" 
                     class="contact-input" 
                     cols="50" 
                     rows="7"
-                    placeholder="Message"
+                    placeholder="<?=$lang['contact_placeholder_message'];?>"
                 ></textarea>
                 <input type="submit" value="Send" id="submit">
             </form>
@@ -45,19 +45,18 @@
                         {
                             if(message == 'YES')
                             {
-                                alert('Mail is successfully sent.');
+                                alert('<?=$lang['contact_message_email_success'];?>');
                                 $('#alert-mesage').html('');
                                 $('.contact-input').val('');
                             }
                             else if(message == 'NO')
                             {
-                                alert('Mail has not been sent!');
+                                alert('<?=$lang['contact_message_email_failure'];?>');
                                 $('#alert-mesage').html('');
                                 $('.contact-input').val('');
                             }
                             else
                             {
-                                //alert(message);
                                 $('#alert-mesage').html('<div class="alert alert-danger">' + message + '</div>');
                             }
                         },
