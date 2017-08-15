@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Submit extends CI_Controller{
+class Contact_Submit extends CI_Controller{
     protected $_lang = array();
     
     // -------------------------------------------------------------------------
@@ -16,6 +16,10 @@ class Submit extends CI_Controller{
     
     // -------------------------------------------------------------------------
     
+    /**
+    * Accepting parameters from contact_us form inside contact_view page
+    * 
+    */
     public function contact_us()
     {        
         // Set validation rules
@@ -62,14 +66,14 @@ class Submit extends CI_Controller{
         if(!empty($string))
         {
             if (!preg_match("/^[a-zA-Z ]+$/", $string))
-            {   
+            {
                 $this->form_validation->set_message('alpha_space_only', $this->_lang['contact_message_callback_alpha_space_only']);
                 return FALSE;
             }
             else
             {
                 return TRUE;
-            }   
+            }
         }
     }
     

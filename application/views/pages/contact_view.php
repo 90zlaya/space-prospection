@@ -38,7 +38,7 @@
                     var form_data = $(this).serialize();
                     $.ajax(
                     {
-                        url: '<?=site_url('ajax/submit/contact_us');?>',
+                        url: '<?=site_url('ajax/contact_submit/contact_us');?>',
                         type: 'POST',
                         data: form_data,
                         success: function(message)

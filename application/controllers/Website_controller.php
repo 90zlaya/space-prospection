@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Website_controller extends CI_Controller{
+class Website_Controller extends CI_Controller{
     protected $_data = array();
     
     // -------------------------------------------------------------------------
@@ -19,18 +19,18 @@ class Website_controller extends CI_Controller{
     
     public function index()
     {
-        $this->load->view('templates/header', $this->_data);
-        $this->load->view('pages/index');
-        $this->load->view('templates/footer', $this->_data);
+        $this->load->view('templates/header_view', $this->_data);
+        $this->load->view('pages/index_view');
+        $this->load->view('templates/footer_view', $this->_data);
     }
     
     // -------------------------------------------------------------------------
     
     public function about()
     {
-        $this->load->view('templates/header', $this->_data);
-        $this->load->view('pages/about');
-        $this->load->view('templates/footer', $this->_data);
+        $this->load->view('templates/header_view', $this->_data);
+        $this->load->view('pages/about_view');
+        $this->load->view('templates/footer_view', $this->_data);
     }
     
     // -------------------------------------------------------------------------
@@ -39,9 +39,9 @@ class Website_controller extends CI_Controller{
     {
         $data['projects'] = $this->website_model->projects();
         
-        $this->load->view('templates/header', $this->_data);
-        $this->load->view('pages/projects', $data);
-        $this->load->view('templates/footer', $this->_data);
+        $this->load->view('templates/header_view', $this->_data);
+        $this->load->view('pages/projects_view', $data);
+        $this->load->view('templates/footer_view', $this->_data);
     }
     
     // -------------------------------------------------------------------------
@@ -51,9 +51,9 @@ class Website_controller extends CI_Controller{
         $this->lang->load('contact_lang', $this->config->item('language'));
         $data['lang'] = $this->lang->language;
         
-        $this->load->view('templates/header', $this->_data);
-        $this->load->view('pages/contact', $data);
-        $this->load->view('templates/footer', $this->_data);
+        $this->load->view('templates/header_view', $this->_data);
+        $this->load->view('pages/contact_view', $data);
+        $this->load->view('templates/footer_view', $this->_data);
     }
     
     // -------------------------------------------------------------------------

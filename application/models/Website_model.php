@@ -1,12 +1,16 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Website_model extends CI_Model{
+class Website_Model extends CI_Model{
     protected $_project_images_location    = 'assets/images/projects/';
     protected $_project_images_replacement = 'no-image.png';
     
     // -------------------------------------------------------------------------
     
+    /**
+    * Instantiates website related data from custom library
+    * 
+    */
     public function website()
     {
         $params = array(
@@ -48,6 +52,10 @@ class Website_model extends CI_Model{
     
     // -------------------------------------------------------------------------
     
+    /**
+    * Returns navigation from database
+    * 
+    */
     public function navigation()
     {
         $query = "
@@ -72,6 +80,10 @@ class Website_model extends CI_Model{
     
     // -------------------------------------------------------------------------
     
+    /**
+    * Returns list of social pages from database
+    * 
+    */
     public function social_links()
     {
         $query = "
