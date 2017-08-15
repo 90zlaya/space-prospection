@@ -2,12 +2,29 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Submit extends CI_Controller{
+    protected $_lang = array();
+    
+    // -------------------------------------------------------------------------
+    
+    public function __construct()
+    {
+        parent::__construct();
+        
+        $this->lang->load('contact_lang', $this->config->item('language'));
+        $this->_lang = $this->lang->language;
+    }
     
     // -------------------------------------------------------------------------
     
     public function contact_us()
-    {
-        if ($this->form_validation->run('contact_us') == FALSE)
+    {        
+        // Set validation rules
+        $this->form_validation->set_rules('name', $this->_lang['contact_placeholder_name'], 'trim|required|callback_alpha_space_only');        
+        $this->form_validation->set_rules('email', $this->_lang['contact_placeholder_email'], 'trim|required|valid_email');
+        $this->form_validation->set_rules('subject', $this->_lang['contact_placeholder_subject'], 'trim|required');
+        $this->form_validation->set_rules('message', $this->_lang['contact_placeholder_message'], 'trim|required|max_length[160]');
+        
+        if ($this->form_validation->run() == FALSE)
         {
             echo validation_errors();
         }
@@ -45,8 +62,8 @@ class Submit extends CI_Controller{
         if(!empty($string))
         {
             if (!preg_match("/^[a-zA-Z ]+$/", $string))
-            {
-                $this->form_validation->set_message('alpha_space_only', 'The %s field must contain only alphabets and space');
+            {   
+                $this->form_validation->set_message('alpha_space_only', $this->_lang['contact_message_callback_alpha_space_only']);
                 return FALSE;
             }
             else

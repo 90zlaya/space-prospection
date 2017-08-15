@@ -29,7 +29,7 @@
                     rows="7"
                     placeholder="<?=$lang['contact_placeholder_message'];?>"
                 ></textarea>
-                <input type="submit" value="Send" id="submit">
+                <input type="submit" value="<?=$lang['contact_button_send'];?>" id="submit">
             </form>
             <div id="alert-mesage"></div>
             <script>
