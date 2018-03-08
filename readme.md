@@ -56,3 +56,5 @@ Acknowledgements
 Copyright © 2017 | [Zlatan Stajic] | Released under the [MIT License]
 
 [online]: https://space-prospection.zlatanstajic.com
+[Zlatan Stajic]: https://www.zlatanstajic.com/
+[MIT License]: http://www.opensource.org/licenses/mit-license.php
