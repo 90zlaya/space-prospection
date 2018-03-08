@@ -1,0 +1,10 @@
+{
+    "config": {
+        "vendor-dir": "application/vendor"
+    },
+    "require": {
+        "90zlaya/php-library": "dev-master",
+        "phpunit/phpunit": "^7",
+        "kenjis/ci-phpunit-test": "dev-master"
+    }
+}

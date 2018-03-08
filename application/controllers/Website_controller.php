@@ -1,11 +1,22 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Website_Controller extends CI_Controller{
+class Website_Controller extends CI_Controller {
+    
+    // -------------------------------------------------------------------------
+    
+    /**
+    * Data passed to view
+    * 
+    * @var Array
+    */
     protected $_data = array();
     
     // -------------------------------------------------------------------------
     
+    /**
+    * Class constructor
+    */
     public function __construct()
     {
         parent::__construct();                                    
@@ -17,6 +28,9 @@ class Website_Controller extends CI_Controller{
     
     // -------------------------------------------------------------------------
     
+    /**
+    * Index page
+    */
     public function index()
     {
         $this->load->view('templates/header_view', $this->_data);
@@ -26,6 +40,9 @@ class Website_Controller extends CI_Controller{
     
     // -------------------------------------------------------------------------
     
+    /**
+    * About page
+    */
     public function about()
     {
         $this->load->view('templates/header_view', $this->_data);
@@ -35,6 +52,9 @@ class Website_Controller extends CI_Controller{
     
     // -------------------------------------------------------------------------
     
+    /**
+    * Projects page
+    */
     public function projects()
     {
         $data['projects'] = $this->website_model->projects();
@@ -46,6 +66,9 @@ class Website_Controller extends CI_Controller{
     
     // -------------------------------------------------------------------------
     
+    /**
+    * Contact page
+    */
     public function contact()
     {
         $this->lang->load('contact_lang', $this->config->item('language'));

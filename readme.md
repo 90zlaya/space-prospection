@@ -1,38 +1,27 @@
-###################
 What is Space-Prospection
-###################
+=======
 
 Space-Prospection is my first website built completely in CodeIgniter framework. Content and purpose of this website is completely made up, I just want to demonstrate building website in MVC structure and other OOP related skills and help other Web Developers teaching themselves this awesome PHP framework.
 
-###################
 How it looks like
-###################
+=======
 
-.. figure:: http://link.zlatanstajic.com/images/portfolio/space-prospection.jpg
+![Homepage of space-prospection website](http://link.zlatanstajic.com/images/portfolio/space-prospection.jpg)
 
-###################
 Release Information
-###################
+=======
 
 This repo contains in-development code. Note that there may be some bugs and unfixed code.
 
-###################
 Server Requirements
-###################
+=======
 
-PHP version 5.6 or newer is recommended.
+PHP version 7.0 or newer is recommended.
 
-It should work on 5.3.7 as well, but I strongly advise you NOT to run
-such old versions of PHP, because of potential security and performance
-issues, as well as missing features.
-
-###################
 Installation
-###################
+=======
 
-
-You may find website `online <https://space-prospection.zlatanstajic.com/>`_
-and compare it with your own copy. 
+You may find website [online] and compare it with your own copy. 
 
 Just change following:
 
@@ -41,10 +30,29 @@ Just change following:
 3. Navigate to application/config/constants.php and set global EMAIL_ADMIN where all emails would be sent to from contact form.
 4. Navigate to root directory and change global variable ENVIRONMENT from development to production.
 
-Please note that website uses SQLite3 database, therefore enable it on your php.ini settings and restart your server. 
+After all changes are commited, you have to update Composer vendors.
 
-###################
-License
-###################
+```
+$ composer update
+```
 
-Free to use and study.
+Please note that website uses SQLite3 database, therefore enable it on your php.ini settings and restart your server.
+
+Unit testing
+=======
+
+All unit tests are stored inside application/tests/unit folder. To successfully setup PHPUnit, run following commands:
+
+```
+$ composer update
+$ php application/vendor/kenjis/ci-phpunit-test/install.php
+$ cd application/tests
+$ phpunit unit/*
+```
+
+Acknowledgements
+=======
+
+Copyright © 2017 | [Zlatan Stajic] | Released under the [MIT License]
+
+[online]: https://space-prospection.zlatanstajic.com

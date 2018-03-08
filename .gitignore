@@ -1,0 +1,18 @@
+# See http://help.github.com/ignore-files/ for more about ignoring files.
+
+# compiled output
+/dist
+/tmp
+/out-tsc
+
+# custom
+composer.lock
+/application/tests
+/application/vendor
+
+# exceptions
+!/application/tests/unit
+
+# System Files
+.DS_Store
+Thumbs.db

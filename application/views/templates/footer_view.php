@@ -4,9 +4,13 @@
                     <h1>FOLLOW OUR MISSIONS ON</h1>
                     <div>
                         <?php
-                            foreach($socials as $social)
+                            foreach ($socials as $social)
                             {
-                                echo '<a href="'. $social['link'] .'" class="'. $social['name'] .'" target="_blank"></a>';
+                                echo '<a href="';
+                                echo $social['link'];
+                                echo '" class="';
+                                echo $social['name'];
+                                echo '" target="_blank"></a>';
                             }
                         ?>
                     </div>
@@ -14,8 +18,8 @@
             </div>
             <div class="footnote">
                 <div>
-                    <p><?=$website['signature'];?></p>
-                    <?=$website['signature_hidden'];?>
+                    <p><?=$website['signature']?></p>
+                    <?=$website['signature_hidden']?>
                 </div>
             </div>
         </div>

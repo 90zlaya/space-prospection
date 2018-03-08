@@ -1,11 +1,22 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Contact_Submit extends CI_Controller{
+class Contact_Submit extends CI_Controller {
+    
+    // -------------------------------------------------------------------------
+    
+    /**
+    * Load entire language into variable
+    * 
+    * @var Array
+    */
     protected $_lang = array();
     
     // -------------------------------------------------------------------------
     
+    /**
+    * Class constructor
+    */
     public function __construct()
     {
         parent::__construct();
@@ -18,15 +29,29 @@ class Contact_Submit extends CI_Controller{
     
     /**
     * Accepting parameters from contact_us form inside contact_view page
-    * 
     */
     public function contact_us()
-    {        
-        // Set validation rules
-        $this->form_validation->set_rules('name', $this->_lang['contact_placeholder_name'], 'trim|required|callback_alpha_space_only');        
-        $this->form_validation->set_rules('email', $this->_lang['contact_placeholder_email'], 'trim|required|valid_email');
-        $this->form_validation->set_rules('subject', $this->_lang['contact_placeholder_subject'], 'trim|required');
-        $this->form_validation->set_rules('message', $this->_lang['contact_placeholder_message'], 'trim|required|max_length[160]');
+    {
+        $this->form_validation->set_rules(
+            'name',
+            $this->_lang['contact_placeholder_name'],
+            'trim|required|callback_alpha_space_only'
+        );
+        $this->form_validation->set_rules(
+            'email',
+            $this->_lang['contact_placeholder_email'],
+            'trim|required|valid_email'
+        );
+        $this->form_validation->set_rules(
+            'subject',
+            $this->_lang['contact_placeholder_subject'],
+            'trim|required'
+        );
+        $this->form_validation->set_rules(
+            'message',
+            $this->_lang['contact_placeholder_message'],
+            'trim|required|max_length[160]'
+        );
         
         if ($this->form_validation->run() == FALSE)
         {
@@ -43,7 +68,8 @@ class Contact_Submit extends CI_Controller{
             $this->email->to(EMAIL_ADMIN);
             $this->email->subject($subject);
             $this->email->message($message);
-            if($this->email->send())
+            
+            if ($this->email->send())
             {
                 echo 'YES';
             }
@@ -60,14 +86,20 @@ class Contact_Submit extends CI_Controller{
     * Custom validation function to accept alphabets and space
     * 
     * @param String $string
+    * 
+    * @return Bool
     */
     public function alpha_space_only($string)
     {
-        if(!empty($string))
+        if ( ! empty($string))
         {
-            if (!preg_match("/^[a-zA-Z ]+$/", $string))
+            if ( ! preg_match("/^[a-zA-Z ]+$/", $string))
             {
-                $this->form_validation->set_message('alpha_space_only', $this->_lang['contact_message_callback_alpha_space_only']);
+                $this->form_validation->set_message(
+                    'alpha_space_only',
+                    $this->_lang['contact_message_callback_alpha_space_only']
+                );
+                
                 return FALSE;
             }
             else

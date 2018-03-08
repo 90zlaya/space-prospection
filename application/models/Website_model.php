@@ -1,8 +1,26 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Website_Model extends CI_Model{
-    protected $_project_images_location    = 'assets/images/projects/';
+use phplibrary\Website as website;
+
+class Website_Model extends CI_Model {
+    
+    // -------------------------------------------------------------------------
+    
+    /**
+    * Images folder
+    * 
+    * @var String
+    */
+    protected $_project_images_location = 'assets/images/projects/';
+    
+    // -------------------------------------------------------------------------
+    
+    /**
+    * Replacement image for project
+    * 
+    * @var String
+    */
     protected $_project_images_replacement = 'no-image.png';
     
     // -------------------------------------------------------------------------
@@ -10,44 +28,50 @@ class Website_Model extends CI_Model{
     /**
     * Instantiates website related data from custom library
     * 
+    * @return Array
     */
     public function website()
     {
-        $params = array(
+        $website = new website(array(
             'name'          => 'Space Prospection', 
             'host'          => base_url(),
-            'made'          => 2017,
+            'made'          => '2017',
             'description'   => 'Small website describing space exploration and search for extraterrestrial life',
             'keywords'      => 'space, exploration, life, et, alien',
-            'favorite_icon' => 'assets/images/favicon.png',
-            'logo_front'    => 'assets/images/logo.png'
-        );
-        $this->load->library('zs_website', $params);
-        $params = array(
+        ));
+        
+        $website->add_to_head(array(
             array(
                 'path' => 'assets/css/style.css', 
-                'type' => 'link'
+                'type' => 'link',
             ),
             array(
                 'path' => 'assets/css/mobile.css', 
-                'type' => 'link'
+                'type' => 'link',
             ),
             array(
                 'path' => 'assets/js/jQuery.min.js', 
-                'type' => 'script'
+                'type' => 'script',
             ),
             array(
                 'path' => 'assets/js/mobile.js', 
-                'type' => 'script'
-            )
+                'type' => 'script',
+            ),
+        ));
+        
+        $website->add_to_images(array(
+            'logo_front' => 'assets/images/logo.png',
+        ), TRUE);
+        
+        return array(
+            'signature'        => $website->signature(TRUE),
+            'signature_hidden' => $website->signature_hidden(),
+            'head'             => $website->head(),
+            'logo'             => $website->images('logo_front'),
+            'meta'             => $website->meta(array(
+                'shortcut_icon' => 'assets/images/favicon.png',
+            )),
         );
-        $this->zs_website->add_to_head($params);
-    return array(
-        'signature'        => $this->zs_website->signature(TRUE),
-        'signature_hidden' => $this->zs_website->signature_hidden(),
-        'head'             => $this->zs_website->head(),
-        'logo'             => $this->zs_website->logo_front
-    );
     }
     
     // -------------------------------------------------------------------------
@@ -55,6 +79,7 @@ class Website_Model extends CI_Model{
     /**
     * Returns navigation from database
     * 
+    * @return Array $return
     */
     public function navigation()
     {
@@ -75,7 +100,8 @@ class Website_Model extends CI_Model{
                 'link'  => $row['link']
             );
         }
-    return $return;
+        
+        return $return;
     }
     
     // -------------------------------------------------------------------------
@@ -83,6 +109,7 @@ class Website_Model extends CI_Model{
     /**
     * Returns list of social pages from database
     * 
+    * @return Array $return
     */
     public function social_links()
     {
@@ -103,7 +130,8 @@ class Website_Model extends CI_Model{
                 'link'  => $row['link']
             );
         }
-    return $return;
+        
+        return $return;
     }
     
     // -------------------------------------------------------------------------
@@ -111,7 +139,8 @@ class Website_Model extends CI_Model{
     /**
     * Returns only last 5 rows
     * This is about to be changed when pagination is implemented
-    *
+    * 
+    * @return Array $return
     */
     public function projects()
     {
@@ -140,9 +169,9 @@ class Website_Model extends CI_Model{
                 'image'       => $this->_project_images_location . $row['image']
             );
         }
-    return $return;
+        
+        return $return;
     }
     
     // -------------------------------------------------------------------------
-}    
-?>
+}
