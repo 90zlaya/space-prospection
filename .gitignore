@@ -7,11 +7,7 @@
 
 # custom
 composer.lock
-/application/tests
 /application/vendor
-
-# exceptions
-!/application/tests/unit
 
 # System Files
 .DS_Store

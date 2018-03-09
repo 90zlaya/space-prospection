@@ -47,7 +47,7 @@ All unit tests are stored inside application/tests/unit folder. To successfully 
 $ composer update
 $ php application/vendor/kenjis/ci-phpunit-test/install.php
 $ cd application/tests
-$ phpunit unit/*
+$ phpunit
 ```
 
 Acknowledgements
