@@ -3,7 +3,7 @@
         "vendor-dir": "application/vendor"
     },
     "require": {
-        "90zlaya/php-library": "dev-master"
+        "90zlaya/php-library": "^1.4"
     },
     "require-dev": {
         "kenjis/ci-phpunit-test": "^0.15.0"
