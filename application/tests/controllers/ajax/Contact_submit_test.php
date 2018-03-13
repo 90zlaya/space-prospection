@@ -28,7 +28,18 @@ class Contact_Submit_Test extends TestCase {
     */
     public function test_contact_us_method()
     {
-        $this->assertNull($this->class_object->contact_us());
+        $result = $this->class_object->contact_us();
+
+        $this->assertNull($result);
+
+        $output = $this->request('POST', 'ajax/contact_submit/contact_us', array(
+            'name'    => 'Zlatan',
+            'email'   => 'contact@zlatanstajic.com',
+            'subject' => 'space-prospection',
+            'message' => 'This is PHPUnit test message',
+        ));
+
+        $this->assertEquals('NO', $output);
     }
 
     // -------------------------------------------------------------------------
@@ -40,7 +51,7 @@ class Contact_Submit_Test extends TestCase {
     {
         $result = $this->class_object->alpha_space_only('space-prospection');
 
-        $this->assertFalse($result);
+        $this->assertNull($result);
 
         $result = $this->class_object->alpha_space_only('spaceprospection');
 

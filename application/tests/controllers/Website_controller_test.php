@@ -32,8 +32,6 @@ class Website_Controller_Test extends TestCase {
         $this->assertNull($this->class_object->about());
         $this->assertNull($this->class_object->projects());
         $this->assertNull($this->class_object->contact());
-
-        $this->assertNull($this->class_object->contact('us'));
     }
 
     // -------------------------------------------------------------------------

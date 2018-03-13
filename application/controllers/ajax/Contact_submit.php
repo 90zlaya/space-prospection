@@ -105,8 +105,6 @@ class Contact_Submit extends CI_Controller {
                 );
             }
         }
-
-        return FALSE;
     }
 
     // -------------------------------------------------------------------------
