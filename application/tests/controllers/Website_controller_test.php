@@ -7,7 +7,7 @@ class Website_Controller_Test extends TestCase {
     /**
     * Testing class object data
     *
-    * @var Website_model
+    * @var Website_controller
     */
     private $class_object;
 
@@ -32,6 +32,8 @@ class Website_Controller_Test extends TestCase {
         $this->assertNull($this->class_object->about());
         $this->assertNull($this->class_object->projects());
         $this->assertNull($this->class_object->contact());
+
+        $this->assertNull($this->class_object->contact('us'));
     }
 
     // -------------------------------------------------------------------------

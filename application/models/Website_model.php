@@ -33,25 +33,25 @@ class Website_Model extends CI_Model {
 
         $website->add_to_head(array(
             array(
-                'path' => 'assets/css/style.css',
+                'path' => base_url() . 'assets/css/style.css',
                 'type' => 'link',
             ),
             array(
-                'path' => 'assets/css/mobile.css',
+                'path' => base_url() . 'assets/css/mobile.css',
                 'type' => 'link',
             ),
             array(
-                'path' => 'assets/js/jQuery.min.js',
+                'path' => base_url() . 'assets/js/jQuery.min.js',
                 'type' => 'script',
             ),
             array(
-                'path' => 'assets/js/mobile.js',
+                'path' => base_url() . 'assets/js/mobile.js',
                 'type' => 'script',
             ),
         ));
 
         $website->add_to_images(array(
-            'logo_front' => 'assets/images/logo.png',
+            'logo_front' => base_url() . 'assets/images/logo.png',
         ), TRUE);
 
         return array(
@@ -60,7 +60,7 @@ class Website_Model extends CI_Model {
             'head'             => $website->head(),
             'logo'             => $website->images('logo_front'),
             'meta'             => $website->meta(array(
-                'shortcut_icon' => 'assets/images/favicon.png',
+                'shortcut_icon' => base_url() . 'assets/images/favicon.png',
             )),
         );
     }
