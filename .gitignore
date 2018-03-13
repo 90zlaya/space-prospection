@@ -11,6 +11,7 @@ composer.lock
 /application/vendor
 
 # exceptions
+!/application/tests/controllers
 !/application/tests/models
 
 # System Files

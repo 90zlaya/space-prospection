@@ -4,65 +4,56 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 use phplibrary\Website as website;
 
 class Website_Model extends CI_Model {
-    
+
     // -------------------------------------------------------------------------
-    
+
     /**
     * Images folder
-    * 
+    *
     * @var String
     */
     protected $_project_images_location = 'assets/images/projects/';
-    
+
     // -------------------------------------------------------------------------
-    
-    /**
-    * Replacement image for project
-    * 
-    * @var String
-    */
-    protected $_project_images_replacement = 'no-image.png';
-    
-    // -------------------------------------------------------------------------
-    
+
     /**
     * Instantiates website related data from custom library
-    * 
+    *
     * @return Array
     */
     public function website()
     {
         $website = new website(array(
-            'name'          => 'Space Prospection', 
+            'name'          => 'Space Prospection',
             'host'          => base_url(),
             'made'          => '2017',
             'description'   => 'Small website describing space exploration and search for extraterrestrial life',
             'keywords'      => 'space, exploration, life, et, alien',
         ));
-        
+
         $website->add_to_head(array(
             array(
-                'path' => 'assets/css/style.css', 
+                'path' => 'assets/css/style.css',
                 'type' => 'link',
             ),
             array(
-                'path' => 'assets/css/mobile.css', 
+                'path' => 'assets/css/mobile.css',
                 'type' => 'link',
             ),
             array(
-                'path' => 'assets/js/jQuery.min.js', 
+                'path' => 'assets/js/jQuery.min.js',
                 'type' => 'script',
             ),
             array(
-                'path' => 'assets/js/mobile.js', 
+                'path' => 'assets/js/mobile.js',
                 'type' => 'script',
             ),
         ));
-        
+
         $website->add_to_images(array(
             'logo_front' => 'assets/images/logo.png',
         ), TRUE);
-        
+
         return array(
             'signature'        => $website->signature(TRUE),
             'signature_hidden' => $website->signature_hidden(),
@@ -73,12 +64,12 @@ class Website_Model extends CI_Model {
             )),
         );
     }
-    
+
     // -------------------------------------------------------------------------
-    
+
     /**
     * Returns navigation from database
-    * 
+    *
     * @return Array $return
     */
     public function navigation()
@@ -100,15 +91,15 @@ class Website_Model extends CI_Model {
                 'link'  => $row['link']
             );
         }
-        
+
         return $return;
     }
-    
+
     // -------------------------------------------------------------------------
-    
+
     /**
     * Returns list of social pages from database
-    * 
+    *
     * @return Array $return
     */
     public function social_links()
@@ -130,16 +121,16 @@ class Website_Model extends CI_Model {
                 'link'  => $row['link']
             );
         }
-        
+
         return $return;
     }
-    
+
     // -------------------------------------------------------------------------
-    
+
     /**
     * Returns only last 5 rows
     * This is about to be changed when pagination is implemented
-    * 
+    *
     * @return Array $return
     */
     public function projects()
@@ -158,20 +149,15 @@ class Website_Model extends CI_Model {
         $sql = $result->result_array();
         foreach ($sql as $row)
         {
-            if(empty($row['image']))
-            {
-               $row['image'] = $this->_project_images_replacement; 
-            }
-            
             $return[] = array(
                 'title'       => strtoupper($row['title']),
                 'description' => $row['description'],
                 'image'       => $this->_project_images_location . $row['image']
             );
         }
-        
+
         return $return;
     }
-    
+
     // -------------------------------------------------------------------------
 }

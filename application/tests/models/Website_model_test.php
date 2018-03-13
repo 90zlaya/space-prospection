@@ -2,9 +2,18 @@
 use phplibrary\Website as website;
 
 class Website_Model_Test extends TestCase {
-    
+
     // -------------------------------------------------------------------------
-    
+
+    /**
+    * Testing class object data
+    *
+    * @var Website_model
+    */
+    private $class_object;
+
+    // -------------------------------------------------------------------------
+
     /**
     * Website object data
     *
@@ -13,7 +22,7 @@ class Website_Model_Test extends TestCase {
     private $website_object;
 
     // -------------------------------------------------------------------------
-    
+
     /**
     * Website constructor data
     *
@@ -28,9 +37,9 @@ class Website_Model_Test extends TestCase {
         'description'   => 'Small website describing space exploration and search for extraterrestrial life',
         'keywords'      => 'space, exploration, life, et, alien',
     );
-    
+
     // -------------------------------------------------------------------------
-    
+
     /**
     * Website test setup method
     */
@@ -45,10 +54,12 @@ class Website_Model_Test extends TestCase {
             'description' => $this->website_data['description'],
             'keywords'    => $this->website_data['keywords'],
         ));
+
+        $this->class_object = $this->newModel('Website_model');
     }
-    
+
     // -------------------------------------------------------------------------
-    
+
     /**
     * Whether or not is possible to retrieve
     * properties from constructor
@@ -81,6 +92,82 @@ class Website_Model_Test extends TestCase {
 
         $this->assertEmpty($this->website_object->errors);
     }
-    
+
+    // -------------------------------------------------------------------------
+
+    /**
+    * Testing website method
+    */
+    public function test_website_method()
+    {
+        $result = $this->class_object->website();
+
+        $this->assertNotEmpty($result);
+        $this->assertInternalType('array', $result);
+        $this->assertArrayHasKey('signature', $result);
+        $this->assertArrayHasKey('signature_hidden', $result);
+        $this->assertArrayHasKey('head', $result);
+        $this->assertArrayHasKey('logo', $result);
+        $this->assertArrayHasKey('meta', $result);
+    }
+
+    // -------------------------------------------------------------------------
+
+    /**
+    * Testing navigation method
+    */
+    public function test_navigation_method()
+    {
+        $result = $this->class_object->navigation();
+
+        $this->assertNotEmpty($result);
+        $this->assertInternalType('array', $result);
+
+        foreach ($result as $item)
+        {
+            $this->assertArrayHasKey('name', $item);
+            $this->assertArrayHasKey('link', $item);
+        }
+    }
+
+    // -------------------------------------------------------------------------
+
+    /**
+    * Testing social_links method
+    */
+    public function test_social_links_method()
+    {
+        $result = $this->class_object->social_links();
+
+        $this->assertNotEmpty($result);
+        $this->assertInternalType('array', $result);
+
+        foreach ($result as $item)
+        {
+            $this->assertArrayHasKey('name', $item);
+            $this->assertArrayHasKey('link', $item);
+        }
+    }
+
+    // -------------------------------------------------------------------------
+
+    /**
+    * Testing projects method
+    */
+    public function test_projects_method()
+    {
+        $result = $this->class_object->projects();
+
+        $this->assertNotEmpty($result);
+        $this->assertInternalType('array', $result);
+
+        foreach ($result as $item)
+        {
+            $this->assertArrayHasKey('title', $item);
+            $this->assertArrayHasKey('description', $item);
+            $this->assertArrayHasKey('image', $item);
+        }
+    }
+
     // -------------------------------------------------------------------------
 }
