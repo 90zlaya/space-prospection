@@ -10,7 +10,7 @@ class Website_Controller extends CI_Controller {
     * 
     * @var Array
     */
-    protected $_data = array();
+    protected $data = array();
     
     // -------------------------------------------------------------------------
     
@@ -21,9 +21,9 @@ class Website_Controller extends CI_Controller {
     {
         parent::__construct();                                    
         
-        $this->_data['website']    = $this->website_model->website();
-        $this->_data['socials']    = $this->website_model->social_links();
-        $this->_data['navigation'] = $this->website_model->navigation();
+        $this->data['website']    = $this->website_model->website();
+        $this->data['socials']    = $this->website_model->social_links();
+        $this->data['navigation'] = $this->website_model->navigation();
     }    
     
     // -------------------------------------------------------------------------
@@ -33,9 +33,9 @@ class Website_Controller extends CI_Controller {
     */
     public function index()
     {
-        $this->load->view('templates/header_view', $this->_data);
+        $this->load->view('templates/header_view', $this->data);
         $this->load->view('pages/index_view');
-        $this->load->view('templates/footer_view', $this->_data);
+        $this->load->view('templates/footer_view', $this->data);
     }
     
     // -------------------------------------------------------------------------
@@ -45,9 +45,9 @@ class Website_Controller extends CI_Controller {
     */
     public function about()
     {
-        $this->load->view('templates/header_view', $this->_data);
+        $this->load->view('templates/header_view', $this->data);
         $this->load->view('pages/about_view');
-        $this->load->view('templates/footer_view', $this->_data);
+        $this->load->view('templates/footer_view', $this->data);
     }
     
     // -------------------------------------------------------------------------
@@ -59,9 +59,9 @@ class Website_Controller extends CI_Controller {
     {
         $data['projects'] = $this->website_model->projects();
         
-        $this->load->view('templates/header_view', $this->_data);
+        $this->load->view('templates/header_view', $this->data);
         $this->load->view('pages/projects_view', $data);
-        $this->load->view('templates/footer_view', $this->_data);
+        $this->load->view('templates/footer_view', $this->data);
     }
     
     // -------------------------------------------------------------------------
@@ -74,9 +74,9 @@ class Website_Controller extends CI_Controller {
         $this->lang->load('contact_lang', $this->config->item('language'));
         $data['lang'] = $this->lang->language;
         
-        $this->load->view('templates/header_view', $this->_data);
+        $this->load->view('templates/header_view', $this->data);
         $this->load->view('pages/contact_view', $data);
-        $this->load->view('templates/footer_view', $this->_data);
+        $this->load->view('templates/footer_view', $this->data);
     }
     
     // -------------------------------------------------------------------------

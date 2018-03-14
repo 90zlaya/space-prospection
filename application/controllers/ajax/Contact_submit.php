@@ -10,7 +10,7 @@ class Contact_Submit extends CI_Controller {
     *
     * @var Array
     */
-    protected $_lang = array();
+    protected $language = array();
 
     // -------------------------------------------------------------------------
 
@@ -22,7 +22,7 @@ class Contact_Submit extends CI_Controller {
         parent::__construct();
 
         $this->lang->load('contact_lang', $this->config->item('language'));
-        $this->_lang = $this->lang->language;
+        $this->language = $this->lang->language;
     }
 
     // -------------------------------------------------------------------------
@@ -34,22 +34,22 @@ class Contact_Submit extends CI_Controller {
     {
         $this->form_validation->set_rules(
             'name',
-            $this->_lang['contact_placeholder_name'],
+            $this->language['contact_placeholder_name'],
             'trim|required|callback_alpha_space_only'
         );
         $this->form_validation->set_rules(
             'email',
-            $this->_lang['contact_placeholder_email'],
+            $this->language['contact_placeholder_email'],
             'trim|required|valid_email'
         );
         $this->form_validation->set_rules(
             'subject',
-            $this->_lang['contact_placeholder_subject'],
+            $this->language['contact_placeholder_subject'],
             'trim|required'
         );
         $this->form_validation->set_rules(
             'message',
-            $this->_lang['contact_placeholder_message'],
+            $this->language['contact_placeholder_message'],
             'trim|required|max_length[160]'
         );
 
@@ -101,7 +101,7 @@ class Contact_Submit extends CI_Controller {
             {
                 $this->form_validation->set_message(
                     'alpha_space_only',
-                    $this->_lang['contact_message_callback_alpha_space_only']
+                    $this->language['contact_message_callback_alpha_space_only']
                 );
             }
         }

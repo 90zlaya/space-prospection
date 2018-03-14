@@ -6,6 +6,7 @@
         "90zlaya/php-library": "^1.4"
     },
     "require-dev": {
-        "kenjis/ci-phpunit-test": "^0.15.0"
+        "kenjis/ci-phpunit-test": "^0.15.0",
+        "squizlabs/php_codesniffer": "^3.2"
     }
 }

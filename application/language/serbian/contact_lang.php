@@ -3,7 +3,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 $lang['contact_button_send']                       = 'Pošalji';
 $lang['contact_page_name']                         = 'Kontakt';
-$lang['contact_short_message']                     = 'Ne oklevajte da nas kontaktirate';;
+$lang['contact_short_message']                     = 'Ne oklevajte da nas kontaktirate';
 $lang['contact_placeholder_name']                  = 'Ime';
 $lang['contact_placeholder_email']                 = 'E-mail adresa';
 $lang['contact_placeholder_subject']               = 'Tema';

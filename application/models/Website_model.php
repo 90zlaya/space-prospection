@@ -12,7 +12,7 @@ class Website_Model extends CI_Model {
     *
     * @var String
     */
-    protected $_project_images_location = 'assets/images/projects/';
+    protected $project_images_location = 'assets/images/projects/';
 
     // -------------------------------------------------------------------------
 
@@ -74,7 +74,7 @@ class Website_Model extends CI_Model {
     */
     public function navigation()
     {
-        $query = "
+        $query  = "
             SELECT nav.id
                 ,nav.name
                 ,nav.link
@@ -83,7 +83,8 @@ class Website_Model extends CI_Model {
             ORDER BY nav.arrangement;
         ";
         $result = $this->db->query($query);
-        $sql = $result->result_array();
+        $sql    = $result->result_array();
+        
         foreach ($sql as $row)
         {
             $return[] = array(
@@ -104,7 +105,7 @@ class Website_Model extends CI_Model {
     */
     public function social_links()
     {
-        $query = "
+        $query  = "
             SELECT sl.id
                 ,sl.name
                 ,sl.link
@@ -113,7 +114,8 @@ class Website_Model extends CI_Model {
             ORDER BY sl.arrangement;
         ";
         $result = $this->db->query($query);
-        $sql = $result->result_array();
+        $sql    = $result->result_array();
+        
         foreach ($sql as $row)
         {
             $return[] = array(
@@ -135,7 +137,7 @@ class Website_Model extends CI_Model {
     */
     public function projects()
     {
-        $query = "
+        $query  = "
             SELECT pr.id
                 ,pr.title
                 ,pr.description
@@ -146,13 +148,14 @@ class Website_Model extends CI_Model {
             LIMIT 5;
         ";
         $result = $this->db->query($query);
-        $sql = $result->result_array();
+        $sql    = $result->result_array();
+        
         foreach ($sql as $row)
         {
             $return[] = array(
                 'title'       => strtoupper($row['title']),
                 'description' => $row['description'],
-                'image'       => $this->_project_images_location . $row['image']
+                'image'       => $this->project_images_location . $row['image']
             );
         }
 

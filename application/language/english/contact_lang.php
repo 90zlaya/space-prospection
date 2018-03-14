@@ -3,7 +3,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 $lang['contact_button_send']                       = 'Send';
 $lang['contact_page_name']                         = 'Contact';
-$lang['contact_short_message']                     = 'Do not hesitate to contact us';;
+$lang['contact_short_message']                     = 'Do not hesitate to contact us';
 $lang['contact_placeholder_name']                  = 'Name';
 $lang['contact_placeholder_email']                 = 'E-mail Address';
 $lang['contact_placeholder_subject']               = 'Subject';
