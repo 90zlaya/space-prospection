@@ -50,6 +50,20 @@ $ cd application/tests
 $ phpunit
 ```
 
+Automatic tests
+=======
+
+You can run all possible automatic tests at once with one simple command.
+
+```
+$ bash autotest
+```
+
+* Coding standard with PHP_CodeSniffer
+* Running unit tests with PHPUnit
+
+Precondition for running all tests above is having Composer vendors updated.
+
 Acknowledgements
 =======
 
