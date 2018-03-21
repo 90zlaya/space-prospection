@@ -1,4 +1,4 @@
-What is Space-Prospection
+﻿What is Space-Prospection
 =======
 
 Space-Prospection is my first website built completely in CodeIgniter framework. Content and purpose of this website is completely made up, I just want to demonstrate building website in MVC structure and other OOP related skills and help other Web Developers teaching themselves this awesome PHP framework.
@@ -46,8 +46,7 @@ All unit tests are stored inside application/tests/unit folder. To successfully 
 ```
 $ composer update
 $ php application/vendor/kenjis/ci-phpunit-test/install.php
-$ cd application/tests
-$ phpunit
+$ phpunit -c application/tests
 ```
 
 Automatic tests
