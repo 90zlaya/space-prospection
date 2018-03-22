@@ -1,0 +1,8 @@
+parameters:
+    autoload_directories:
+        - %rootDir%/../../../../system
+        - %rootDir%/../../../../application/config
+        - %rootDir%/../../../../application/controllers
+        - %rootDir%/../../../../application/models
+    autoload_files:
+        - %rootDir%/../../../../application/config/autoload.php
