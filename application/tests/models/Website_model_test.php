@@ -1,4 +1,6 @@
 <?php
+defined('BASEPATH') OR exit('No direct script access allowed');
+
 use phplibrary\Website as website;
 
 class Website_Model_Test extends TestCase {
