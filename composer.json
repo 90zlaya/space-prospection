@@ -11,6 +11,6 @@
         "phpstan/phpstan": "^0.9.1"
     },
     "scripts": {
-        "phpstan": "application/vendor/bin/phpstan analyse -c phpstan.neon -l max application/controllers application/models application/tests"
+        "phpstan": "bash application/vendor/bin/phpstan analyse -c phpstan.neon -l max application/controllers application/models application/tests/controllers application/tests/models"
     }
 }
