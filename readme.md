@@ -67,7 +67,7 @@ Precondition for running all tests above is having Composer vendors updated.
 Acknowledgements
 =======
 
-Copyright © 2017 | [Zlatan Stajic] | Released under the [MIT License]
+Copyright © 2017-2018 | [Zlatan Stajic] | Released under the [MIT License]
 
 [online]: https://space-prospection.zlatanstajic.com
 [Zlatan Stajic]: https://www.zlatanstajic.com/

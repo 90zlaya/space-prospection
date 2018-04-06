@@ -7,12 +7,6 @@
     },
     "require-dev": {
         "kenjis/ci-phpunit-test": "^0.15.0",
-        "squizlabs/php_codesniffer": "^3.2",
-        "phpstan/phpstan": "^0.9.1"
-    },
-    "scripts": {
-        "phpstan": "bash application/vendor/bin/phpstan analyse -c phpstan.neon -l max application/controllers application/models application/tests/controllers application/tests/models",
-		"codesniffer": "bash application/vendor/bin/phpcs application/controllers application/models application/tests/controllers application/tests/models --standard='ruleset.xml' --colors",
-		"phpunit": "phpunit -c application/tests"
+        "squizlabs/php_codesniffer": "^3.2"
     }
 }
