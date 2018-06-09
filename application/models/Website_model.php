@@ -24,11 +24,11 @@ class Website_Model extends CI_Model {
     public function website()
     {
         $website = new website(array(
-            'name'          => 'Space Prospection',
-            'host'          => base_url(),
-            'made'          => '2017',
-            'description'   => 'Small website describing space exploration and search for extraterrestrial life',
-            'keywords'      => 'space, exploration, life, et, alien',
+            'name'        => 'Space Prospection',
+            'host'        => base_url(),
+            'made'        => '2017',
+            'description' => 'Small website describing space exploration and search for extraterrestrial life',
+            'keywords'    => 'space, exploration, life, et, alien',
         ));
 
         $website->add_to_head(array(
@@ -88,8 +88,8 @@ class Website_Model extends CI_Model {
         foreach ($sql as $row)
         {
             $return[] = array(
-                'name'  => $row['name'],
-                'link'  => $row['link']
+                'name' => $row['name'],
+                'link' => $row['link'],
             );
         }
 
@@ -119,8 +119,8 @@ class Website_Model extends CI_Model {
         foreach ($sql as $row)
         {
             $return[] = array(
-                'name'  => $row['name'],
-                'link'  => $row['link']
+                'name' => $row['name'],
+                'link' => $row['link'],
             );
         }
 
@@ -155,7 +155,7 @@ class Website_Model extends CI_Model {
             $return[] = array(
                 'title'       => strtoupper($row['title']),
                 'description' => $row['description'],
-                'image'       => $this->project_images_location . $row['image']
+                'image'       => $this->project_images_location . $row['image'],
             );
         }
 

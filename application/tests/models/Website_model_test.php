@@ -31,13 +31,13 @@ class Website_Model_Test extends TestCase {
     * @var Array
     */
     private $website_data = array(
-        'name'          => 'Space Prospection',
-        'host'          => 'http://localhost/_develop/space-prospection/',
-        'made'          => '2017',
-        'language'      => 'english',
-        'charset'       => 'utf-8',
-        'description'   => 'Small website describing space exploration and search for extraterrestrial life',
-        'keywords'      => 'space, exploration, life, et, alien',
+        'name'        => 'Space Prospection',
+        'host'        => 'http://localhost/_develop/space-prospection/',
+        'made'        => '2017',
+        'language'    => 'english',
+        'charset'     => 'utf-8',
+        'description' => 'Small website describing space exploration and search for extraterrestrial life',
+        'keywords'    => 'space, exploration, life, et, alien',
     );
 
     // -------------------------------------------------------------------------
