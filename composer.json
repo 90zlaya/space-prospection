@@ -7,6 +7,6 @@
     },
     "require-dev": {
         "kenjis/ci-phpunit-test": "0.15.*",
-        "squizlabs/php_codesniffer": "3.2.*"
+        "squizlabs/php_codesniffer": "3.3.*"
     }
 }
