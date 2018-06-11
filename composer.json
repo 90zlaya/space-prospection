@@ -3,10 +3,10 @@
         "vendor-dir": "application/vendor"
     },
     "require": {
-        "90zlaya/php-library": "^1.5"
+        "90zlaya/php-library": "1.5.*"
     },
     "require-dev": {
-        "kenjis/ci-phpunit-test": "^0.15.0",
-        "squizlabs/php_codesniffer": "^3.2"
+        "kenjis/ci-phpunit-test": "0.15.*",
+        "squizlabs/php_codesniffer": "3.2.*"
     }
 }
