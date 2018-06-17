@@ -6,12 +6,7 @@ Space-Prospection is my first website built completely in CodeIgniter framework.
 How it looks like
 =======
 
-![Homepage of space-prospection website](http://link.zlatanstajic.com/images/portfolio/space-prospection.jpg)
-
-Release Information
-=======
-
-This repo contains in-development code. Note that there may be some bugs and unfixed code.
+![Homepage of space-prospection website](http://link.zlatanstajic.com/images/portfolio/small/space-prospection.jpg)
 
 Server Requirements
 =======
