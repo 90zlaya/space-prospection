@@ -1,5 +1,23 @@
 {
+    "name": "90zlaya/space-prospection",
+    "description": "Space Prospection is my first website built completely in CodeIgniter framework.",
+    "keywords": [
+        "php",
+        "codeigniter"
+    ],
+    "homepage": "https://github.com/90zlaya/space-prospection",
+    "license": "MIT",
+    "authors": [
+      {
+        "name": "Zlatan Stajic",
+        "email": "contact@zlatanstajic.com",
+        "homepage": "https://www.zlatanstajic.com",
+        "role": "Author & Main Developer"
+      }
+    ],
     "config": {
+        "sort-packages": true,
+        "optimize-autoloader": true,
         "vendor-dir": "application/vendor"
     },
     "require": {

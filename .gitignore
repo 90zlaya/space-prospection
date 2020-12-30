@@ -1,18 +1,18 @@
 # See http://help.github.com/ignore-files/ for more about ignoring files.
 
-# compiled output
+# Compiled output
 /dist
 /tmp
 /out-tsc
 
-# custom
+# Custom
 composer.lock
 /application/tests/*
 /application/tests/controllers/Welcome_test.php
 /application/tests/models/.gitkeep
 /application/vendor
 
-# exceptions
+# Exceptions
 !/application/tests/phpunit.xml
 !/application/tests/controllers
 !/application/tests/models
