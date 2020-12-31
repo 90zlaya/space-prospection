@@ -41,7 +41,7 @@ class Website_Model extends CI_Model {
                 'type' => 'link',
             ),
             array(
-                'path' => base_url() . 'assets/js/jQuery.min.js',
+                'path' => 'https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js',
                 'type' => 'script',
             ),
             array(
