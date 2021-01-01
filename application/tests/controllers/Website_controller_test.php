@@ -3,30 +3,24 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Website_Controller_Test extends TestCase {
 
-    // -------------------------------------------------------------------------
-
     /**
-    * Testing class object data
-    *
-    * @var Website_controller
-    */
+     * Testing class object data
+     *
+     * @var Website_controller
+     */
     private $class_object;
 
-    // -------------------------------------------------------------------------
-
     /**
-    * Website test setup method
-    */
+     * Website test setup method
+     */
     public function setUp()
     {
         $this->class_object = $this->newController('Website_controller');
     }
 
-    // -------------------------------------------------------------------------
-
     /**
-    * Testing public methods
-    */
+     * Testing public methods
+     */
     public function test_public_methods()
     {
         $this->assertNull($this->class_object->index());
@@ -35,5 +29,4 @@ class Website_Controller_Test extends TestCase {
         $this->assertNull($this->class_object->contact());
     }
 
-    // -------------------------------------------------------------------------
 }

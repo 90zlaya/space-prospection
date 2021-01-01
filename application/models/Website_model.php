@@ -5,22 +5,18 @@ use phplibrary\Website as website;
 
 class Website_Model extends CI_Model {
 
-    // -------------------------------------------------------------------------
-
     /**
-    * Images folder
-    *
-    * @var String
-    */
+     * Images folder
+     *
+     * @var String
+     */
     protected $project_images_location = 'assets/images/projects/';
 
-    // -------------------------------------------------------------------------
-
     /**
-    * Instantiates website related data from custom library
-    *
-    * @return Array
-    */
+     * Instantiates website related data from custom library
+     *
+     * @return Array
+     */
     public function website()
     {
         $website = new website(array(
@@ -65,13 +61,11 @@ class Website_Model extends CI_Model {
         );
     }
 
-    // -------------------------------------------------------------------------
-
     /**
-    * Returns navigation from database
-    *
-    * @return Array $return
-    */
+     * Returns navigation from database
+     *
+     * @return Array $return
+     */
     public function navigation()
     {
         $query  = "
@@ -96,13 +90,11 @@ class Website_Model extends CI_Model {
         return $return;
     }
 
-    // -------------------------------------------------------------------------
-
     /**
-    * Returns list of social pages from database
-    *
-    * @return Array $return
-    */
+     * Returns list of social pages from database
+     *
+     * @return Array $return
+     */
     public function social_links()
     {
         $query  = "
@@ -127,14 +119,12 @@ class Website_Model extends CI_Model {
         return $return;
     }
 
-    // -------------------------------------------------------------------------
-
     /**
-    * Returns only last 5 rows
-    * This is about to be changed when pagination is implemented
-    *
-    * @return Array $return
-    */
+     * Returns only last 5 rows
+     * This should be changed when pagination is implemented
+     *
+     * @return Array $return
+     */
     public function projects()
     {
         $query  = "
@@ -162,5 +152,4 @@ class Website_Model extends CI_Model {
         return $return;
     }
 
-    // -------------------------------------------------------------------------
 }

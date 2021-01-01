@@ -3,20 +3,16 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Contact_Submit extends CI_Controller {
 
-    // -------------------------------------------------------------------------
-
     /**
-    * Load entire language into variable
-    *
-    * @var Array
-    */
+     * Load entire language into variable
+     *
+     * @var Array
+     */
     protected $language = array();
 
-    // -------------------------------------------------------------------------
-
     /**
-    * Class constructor
-    */
+     * Class constructor
+     */
     public function __construct()
     {
         parent::__construct();
@@ -25,11 +21,9 @@ class Contact_Submit extends CI_Controller {
         $this->language = $this->lang->language;
     }
 
-    // -------------------------------------------------------------------------
-
     /**
-    * Accepting parameters from contact_us form inside contact_view page
-    */
+     * Accepting parameters from contact_us form inside contact_view page
+     */
     public function contact_us()
     {
         $this->form_validation->set_rules(
@@ -80,15 +74,13 @@ class Contact_Submit extends CI_Controller {
         }
     }
 
-    // -------------------------------------------------------------------------
-
     /**
-    * Custom validation function to accept alphabets and space
-    *
-    * @param String $string
-    *
-    * @return Bool
-    */
+     * Custom validation function to accept alphabets and space
+     *
+     * @param String $string
+     *
+     * @return Bool
+     */
     public function alpha_space_only($string)
     {
         if ( ! empty($string))
@@ -106,6 +98,5 @@ class Contact_Submit extends CI_Controller {
             }
         }
     }
-
-    // -------------------------------------------------------------------------
+    
 }

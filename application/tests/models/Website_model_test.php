@@ -5,31 +5,25 @@ use phplibrary\Website as website;
 
 class Website_Model_Test extends TestCase {
 
-    // -------------------------------------------------------------------------
-
     /**
-    * Testing class object data
-    *
-    * @var Website_model
-    */
+     * Testing class object data
+     *
+     * @var Website_model
+     */
     private $class_object;
 
-    // -------------------------------------------------------------------------
-
     /**
-    * Website object data
-    *
-    * @var Website
-    */
+     * Website object data
+     *
+     * @var Website
+     */
     private $website_object;
 
-    // -------------------------------------------------------------------------
-
     /**
-    * Website constructor data
-    *
-    * @var Array
-    */
+     * Website constructor data
+     *
+     * @var Array
+     */
     private $website_data = array(
         'name'        => 'Space Prospection',
         'host'        => 'http://localhost/_develop/space-prospection/',
@@ -40,11 +34,9 @@ class Website_Model_Test extends TestCase {
         'keywords'    => 'space, exploration, life, et, alien',
     );
 
-    // -------------------------------------------------------------------------
-
     /**
-    * Website test setup method
-    */
+     * Website test setup method
+     */
     public function setUp()
     {
         $this->website_object = new website(array(
@@ -60,12 +52,10 @@ class Website_Model_Test extends TestCase {
         $this->class_object = $this->newModel('Website_model');
     }
 
-    // -------------------------------------------------------------------------
-
     /**
-    * Whether or not is possible to retrieve
-    * properties from constructor
-    */
+     * Whether or not is possible to retrieve
+     * properties from constructor
+     */
     public function test_retrieving_website_properties()
     {
         $this->assertArrayHasKey('location', $this->website_object->server);
@@ -95,11 +85,9 @@ class Website_Model_Test extends TestCase {
         $this->assertEmpty($this->website_object->errors);
     }
 
-    // -------------------------------------------------------------------------
-
     /**
-    * Testing website method
-    */
+     * Testing website method
+     */
     public function test_website_method()
     {
         $result = $this->class_object->website();
@@ -113,11 +101,9 @@ class Website_Model_Test extends TestCase {
         $this->assertArrayHasKey('meta', $result);
     }
 
-    // -------------------------------------------------------------------------
-
     /**
-    * Testing navigation method
-    */
+     * Testing navigation method
+     */
     public function test_navigation_method()
     {
         $result = $this->class_object->navigation();
@@ -132,11 +118,9 @@ class Website_Model_Test extends TestCase {
         }
     }
 
-    // -------------------------------------------------------------------------
-
     /**
-    * Testing social_links method
-    */
+     * Testing social_links method
+     */
     public function test_social_links_method()
     {
         $result = $this->class_object->social_links();
@@ -151,11 +135,9 @@ class Website_Model_Test extends TestCase {
         }
     }
 
-    // -------------------------------------------------------------------------
-
     /**
-    * Testing projects method
-    */
+     * Testing projects method
+     */
     public function test_projects_method()
     {
         $result = $this->class_object->projects();
@@ -171,5 +153,4 @@ class Website_Model_Test extends TestCase {
         }
     }
 
-    // -------------------------------------------------------------------------
 }

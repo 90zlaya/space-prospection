@@ -3,30 +3,24 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Contact_Submit_Test extends TestCase {
 
-    // -------------------------------------------------------------------------
-
     /**
-    * Testing class object data
-    *
-    * @var Contact_submit
-    */
+     * Testing class object data
+     *
+     * @var Contact_submit
+     */
     private $class_object;
 
-    // -------------------------------------------------------------------------
-
     /**
-    * Website test setup method
-    */
+     * Website test setup method
+     */
     public function setUp()
     {
         $this->class_object = $this->newController('Contact_submit');
     }
 
-    // -------------------------------------------------------------------------
-
     /**
-    * Testing contact_us method
-    */
+     * Testing contact_us method
+     */
     public function test_contact_us_method()
     {
         $result = $this->class_object->contact_us();
@@ -43,11 +37,9 @@ class Contact_Submit_Test extends TestCase {
         $this->assertEquals('NO', $output);
     }
 
-    // -------------------------------------------------------------------------
-
     /**
-    * Testing alpha_space_only method
-    */
+     * Testing alpha_space_only method
+     */
     public function test_alpha_space_only_method()
     {
         $result = $this->class_object->alpha_space_only('space-prospection');
@@ -59,5 +51,4 @@ class Contact_Submit_Test extends TestCase {
         $this->assertTrue($result);
     }
 
-    // -------------------------------------------------------------------------
 }
