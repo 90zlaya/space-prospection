@@ -15,6 +15,9 @@
         "role": "Author & Main Developer"
       }
     ],
+    "scripts": {
+      "autotest": "bash shell/auto-test.sh"
+    },
     "config": {
         "sort-packages": true,
         "optimize-autoloader": true,
