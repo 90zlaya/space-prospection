@@ -1,8 +1,8 @@
 #!/bin/bash
 
 ################################################################################
-# Script name : auto-test.sh
-# Description : Run automatic tests 
+# Script name : check.sh
+# Description : Check if your machine is setup properly 
 # Arguments   : /
 # Author      : 90zlaya
 # Email       : contact@zlatanstajic.com
@@ -16,14 +16,6 @@
 SCRIPT_NAME="`basename $(readlink -f $0)`"
 SCRIPT_DIR="`dirname $(readlink -f $0)`"
 ROOT_DIR="$SCRIPT_DIR/.."
-APP_DIR="$ROOT_DIR/application"
-VENDOR_DIR="$APP_DIR/vendor"
-CODESNIFFER_DIRS=(
-  "controllers"
-  "models"
-  "tests/controllers"
-  "tests/models"
-)
 
 ################################################################################
 # Shell terminates
@@ -49,15 +41,27 @@ End()
 
 echo ""
 echo "Script $SCRIPT_NAME starting..."
-
-for directory in ${CODESNIFFER_DIRS[*]}
-do
-  "${VENDOR_DIR}/bin/phpcs" "${APP_DIR}/${directory}/" --standard="${ROOT_DIR}/ruleset.xml" --colors
-  echo "Finished PHP_CodeSniffer for ${directory} directory"
-done
-
-phpunit -c "${APP_DIR}/tests/"
-
+echo "=============================================================>"
+echo "Checking PHP version"
+echo ""
+php --version
+echo "<============================================================="
+echo "=============================================================>"
+echo "Checking composer version"
+echo ""
+composer --version
+echo "<============================================================="
+echo "=============================================================>"
+echo "Cheecking PHPUnit version"
+echo ""
+phpunit --version
+echo "<============================================================="
+echo "=============================================================>"
+echo "Checking SQLite3 version"
+echo ""
+sqlite3 --version
+echo "<============================================================="
+echo ""
 End 0
 
 ################################################################################
