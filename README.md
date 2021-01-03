@@ -1,5 +1,3 @@
-[![Generic badge](https://img.shields.io/badge/version-2.0.0-<COLOR>.svg)](https://shields.io/)
-
 # Space Prospection
 > Simple [CodeIgniter](https://codeigniter.com/) framework website 
 
@@ -11,7 +9,6 @@
 1. [Testing](#testing)
 
 You may find [Space Prospection website](https://space-prospection.zlatanstajic.com) online and compare it with your own copy. 
-***
 
 1. ## Description
 
@@ -29,10 +26,13 @@ Currently home page looks like this, but have in mind that this image might stay
 
 3. ## Build Setup
 
-PHP version 7.1 or newer is recommended. Website uses [SQLite3](https://www.sqlite.org) database, therefore install/enable it in your `php.ini` settings and restart your server. The rest of the setup can be completed by one simple command.
+PHP version 7.1 or newer is recommended. Website uses [SQLite3](https://www.sqlite.org) database, therefore install/enable it in your `php.ini` settings and restart your server.
 
 ```bash
-# Setup Space Prospection
+# Check if your machine is setup properly
+composer run check
+
+# Setup project
 composer run setup
 ```
 
@@ -50,14 +50,14 @@ When installing on a server just change following:
 Please note that you need PHPUnit installed on your machine. Running `apt-get install phpunit` will do the work for [Linux](https://www.linux.org/)-based operating systems. All unit tests are stored inside [application/tests](application/tests) folder.
 
 ```bash
-# Run unit testing
+# Run unit tests
 composer run phpunit
 
-# Run automatic tests
+# Run all tests
 composer run autotest
 ```
 
-Running automatic tests will check following:
+Running all tests will check following:
 
 * Coding standard with [PHP_CodeSniffer](https://github.com/squizlabs/PHP_CodeSniffer)
 * Unit tests with [PHPUnit](https://phpunit.de/)
