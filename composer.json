@@ -17,7 +17,7 @@
     ],
     "scripts": {
       "check": "bash shell/check.sh",
-      "setup": "composer install && php application/vendor/kenjis/ci-phpunit-test/install.php && rm application/tests/controllers/Welcome_test.php",
+      "setup": "bash shell/setup.sh",
       "phpunit": "phpunit -c application/tests",
       "autotest": "bash shell/auto-test.sh"
     },
