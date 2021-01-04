@@ -8,7 +8,7 @@
                 {
                     echo '
                         <li>
-                            <a><img src="' . $project['image'] . '" alt=""></a>
+                            <a><img src="assets/images/projects/' . $project['image'] . '" alt=""></a>
                             <div>
                                 <h1>' . $project['title'] . '</h1>
                                 <p>' . $project['description'] . '</p>

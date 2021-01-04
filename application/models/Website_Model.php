@@ -4,94 +4,56 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class Website_Model extends CI_Model {
 
     /**
-     * Returns navigation from database
+     * Get pages for navigation
      *
-     * @return Array $return
+     * @return Array
      */
     public function navigation()
     {
-        $query  = "
-            SELECT nav.id
+        return $this->db->query("
+            SELECT nav.navigation_id
                 ,nav.name
                 ,nav.link
             FROM navigation AS nav
-            WHERE nav.stt = 'A'
+            WHERE nav.active = 1
             ORDER BY nav.arrangement;
-        ";
-        $result = $this->db->query($query);
-        $sql    = $result->result_array();
-        
-        foreach ($sql as $row)
-        {
-            $return[] = array(
-                'name' => $row['name'],
-                'link' => $row['link'],
-            );
-        }
-
-        return $return;
+        ")->result_array();
     }
 
     /**
-     * Returns list of social pages from database
+     * Get social links
      *
-     * @return Array $return
+     * @return Array
      */
     public function social_links()
     {
-        $query  = "
-            SELECT sl.id
+        return $this->db->query("
+            SELECT sl.social_link_id
                 ,sl.name
                 ,sl.link
             FROM social_links AS sl
-            WHERE sl.stt = 'A'
+            WHERE sl.active = 1
             ORDER BY sl.arrangement;
-        ";
-        $result = $this->db->query($query);
-        $sql    = $result->result_array();
-        
-        foreach ($sql as $row)
-        {
-            $return[] = array(
-                'name' => $row['name'],
-                'link' => $row['link'],
-            );
-        }
-
-        return $return;
+        ")->result_array();
     }
 
     /**
-     * Returns only last 5 rows
-     * This should be changed when pagination is implemented
+     * Get content for projects page (last 5 only)
      *
-     * @return Array $return
+     * @return Array
      */
     public function projects()
     {
-        $query  = "
-            SELECT pr.id
+        return $this->db->query("
+            SELECT pr.project_id
                 ,pr.title
                 ,pr.description
                 ,pr.image
             FROM projects AS pr
-            WHERE pr.stt = 'A'
+            WHERE pr.active = 1
             ORDER BY pr.date_entry DESC
             LIMIT 5;
-        ";
-        $result = $this->db->query($query);
-        $sql    = $result->result_array();
-        
-        foreach ($sql as $row)
-        {
-            $return[] = array(
-                'title'       => strtoupper($row['title']),
-                'description' => $row['description'],
-                'image'       => 'assets/images/projects/' . $row['image'],
-            );
-        }
-
-        return $return;
+        ")->result_array();
     }
 
 }

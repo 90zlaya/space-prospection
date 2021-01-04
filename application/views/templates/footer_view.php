@@ -10,7 +10,9 @@
                         echo $social['link'];
                         echo '" class="';
                         echo $social['name'];
-                        echo '" target="_blank"></a>';
+                        echo '" target="_blank"';
+                        echo ' rel="noopener"';
+                        echo '></a>';
                     }
                 ?>
             </div>

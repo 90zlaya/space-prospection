@@ -26,7 +26,7 @@ Currently home page looks like this, but have in mind that this image might stay
 
 ## Build Setup
 
-PHP version 7.1 or newer is recommended. Website uses [SQLite3](https://www.sqlite.org) database, therefore install/enable it in your `php.ini` settings and restart your server.
+PHP version 7.1 or newer is recommended. Website uses [SQLite3](https://www.sqlite.org) database, therefore install/enable it in your `php.ini` settings and restart your server. Strongly recommended to use [SQLite Studio](https://sqlitestudio.pl/) to browse and edit SQLite database. 
 
 ```bash
 # Check if your machine is setup properly
