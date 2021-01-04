@@ -140,6 +140,4 @@ $autoload['language'] = array();
 |
 |	$autoload['model'] = array('first_model' => 'first');
 */
-$autoload['model'] = array(
-    'Website_Model',
-);
+$autoload['model'] = array('Website_Model');

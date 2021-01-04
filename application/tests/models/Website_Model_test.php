@@ -6,7 +6,7 @@ class Website_Model_test extends TestCase {
     /**
      * Testing class object data
      *
-     * @var Website_model
+     * @var Website_Model
      */
     private $class_object;
 
@@ -15,7 +15,7 @@ class Website_Model_test extends TestCase {
      */
     public function setUp()
     {
-        $this->class_object = $this->newModel('Website_model');
+        $this->class_object = $this->newModel('Website_Model');
     }
 
     /**
