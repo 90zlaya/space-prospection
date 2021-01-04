@@ -30,15 +30,15 @@ class Website_Controller_test extends TestCase {
     }
 
     /**
-     * Testing contact_us method
+     * Testing submit_message method
      */
-    public function test_contact_us_method()
+    public function test_submit_message_method()
     {
-        $result = $this->class_object->contact_us();
+        $result = $this->class_object->submit_message();
 
         $this->assertNull($result);
 
-        $output = $this->request('POST', 'contact_us', array(
+        $output = $this->request('POST', 'submit_message', array(
             'name'    => 'Zlatan',
             'email'   => 'contact@zlatanstajic.com',
             'subject' => 'space-prospection',

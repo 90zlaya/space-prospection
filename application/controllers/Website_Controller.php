@@ -64,9 +64,9 @@ class Website_Controller extends CI_Controller {
     }
 
     /**
-     * Accepting parameters from contact_us form inside contact_view page
+     * Accepting parameters from form inside contact_view page
      */
-    public function contact_us()
+    public function submit_message()
     {
         $this->form_validation->set_rules(
             'name',
