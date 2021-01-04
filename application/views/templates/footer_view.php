@@ -18,11 +18,12 @@
     </div>
     <div class="footnote">
         <div>
-            <p><?=$website['signature']?></p>
-            <?=$website['signature_hidden']?>
+            <p>Copyright &#169; 2017 | <a href="https://www.zlatanstajic.com/" target="_blank" rel="noopener">Zlatan Stajić</a></p>
+            <!-- Proudly built by: Zlatan Stajić; Find me on https://www.zlatanstajic.com/ -->
         </div>
     </div>
 </div>
 </div>
+<script src="assets/js/mobile.js"></script>
 </body>
 </html>

@@ -1,65 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-use phplibrary\Website as website;
-
 class Website_Model extends CI_Model {
-
-    /**
-     * Images folder
-     *
-     * @var String
-     */
-    protected $project_images_location = 'assets/images/projects/';
-
-    /**
-     * Instantiates website related data from custom library
-     *
-     * @return Array
-     */
-    public function website()
-    {
-        $website = new website(array(
-            'name'        => 'Space Prospection',
-            'host'        => base_url(),
-            'made'        => '2017',
-            'description' => 'Small website describing space exploration and search for extraterrestrial life',
-            'keywords'    => 'space, exploration, life, et, alien',
-        ));
-
-        $website->add_to_head(array(
-            array(
-                'path' => base_url() . 'assets/css/style.css',
-                'type' => 'link',
-            ),
-            array(
-                'path' => base_url() . 'assets/css/mobile.css',
-                'type' => 'link',
-            ),
-            array(
-                'path' => 'https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js',
-                'type' => 'script',
-            ),
-            array(
-                'path' => base_url() . 'assets/js/mobile.js',
-                'type' => 'script',
-            ),
-        ));
-
-        $website->add_to_images(array(
-            'logo_front' => base_url() . 'assets/images/logo.png',
-        ), TRUE);
-
-        return array(
-            'signature'        => $website->signature(TRUE),
-            'signature_hidden' => $website->signature_hidden(),
-            'head'             => $website->head(),
-            'logo'             => $website->images('logo_front'),
-            'meta'             => $website->meta(array(
-                'shortcut_icon' => base_url() . 'assets/images/favicon.png',
-            )),
-        );
-    }
 
     /**
      * Returns navigation from database
@@ -145,7 +87,7 @@ class Website_Model extends CI_Model {
             $return[] = array(
                 'title'       => strtoupper($row['title']),
                 'description' => $row['description'],
-                'image'       => $this->project_images_location . $row['image'],
+                'image'       => 'assets/images/projects/' . $row['image'],
             );
         }
 

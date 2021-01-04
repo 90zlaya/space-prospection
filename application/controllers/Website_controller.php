@@ -17,7 +17,6 @@ class Website_Controller extends CI_Controller {
     {
         parent::__construct();                                    
         
-        $this->data['website']    = $this->website_model->website();
         $this->data['socials']    = $this->website_model->social_links();
         $this->data['navigation'] = $this->website_model->navigation();
     }

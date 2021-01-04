@@ -11,14 +11,6 @@ class Contact_Submit extends CI_Controller {
     protected $language = array();
 
     /**
-     * Class constructor
-     */
-    public function __construct()
-    {
-        parent::__construct();
-    }
-
-    /**
      * Accepting parameters from contact_us form inside contact_view page
      */
     public function contact_us()
