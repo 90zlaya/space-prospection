@@ -34,6 +34,9 @@ composer run check
 
 # Setup project
 composer run setup
+
+# Run website
+composer run serve
 ```
 
 When installing on a server just change following:
@@ -62,6 +65,6 @@ Running all tests will check following:
 * Coding standard with [PHP_CodeSniffer](https://github.com/squizlabs/PHP_CodeSniffer)
 * Unit tests with [PHPUnit](https://phpunit.de/)
 
-This way you will be more secure that everything is working as expected. 
+Unit tests coverage report will be created in [coverage](application/tests/build/coverage) folder.
 
 [⬆ back to top](#table-of-contents)
