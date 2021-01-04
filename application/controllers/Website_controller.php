@@ -58,12 +58,9 @@ class Website_Controller extends CI_Controller {
      * Contact page
      */
     public function contact()
-    {
-        $this->lang->load('contact_lang', $this->config->item('language'));
-        $data['lang'] = $this->lang->language;
-        
+    {        
         $this->load->view('templates/header_view', $this->data);
-        $this->load->view('pages/contact_view', $data);
+        $this->load->view('pages/contact_view');
         $this->load->view('templates/footer_view', $this->data);
     }
     

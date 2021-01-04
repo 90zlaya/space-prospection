@@ -16,9 +16,6 @@ class Contact_Submit extends CI_Controller {
     public function __construct()
     {
         parent::__construct();
-
-        $this->lang->load('contact_lang', $this->config->item('language'));
-        $this->language = $this->lang->language;
     }
 
     /**
@@ -28,22 +25,22 @@ class Contact_Submit extends CI_Controller {
     {
         $this->form_validation->set_rules(
             'name',
-            $this->language['contact_placeholder_name'],
+            'Name',
             'trim|required|callback_alpha_space_only'
         );
         $this->form_validation->set_rules(
             'email',
-            $this->language['contact_placeholder_email'],
+            'E-mail Address',
             'trim|required|valid_email'
         );
         $this->form_validation->set_rules(
             'subject',
-            $this->language['contact_placeholder_subject'],
+            'Subject',
             'trim|required'
         );
         $this->form_validation->set_rules(
             'message',
-            $this->language['contact_placeholder_message'],
+            'Message',
             'trim|required|max_length[160]'
         );
 
@@ -63,29 +60,22 @@ class Contact_Submit extends CI_Controller {
             $this->email->subject($subject);
             $this->email->message($message);
 
-            if ($this->email->send())
-            {
-                echo 'YES';
-            }
-            else
-            {
-                echo 'NO';
-            }
+            echo $this->email->send() ? 'YES' : 'NO';
         }
     }
 
     /**
      * Custom validation function to accept alphabets and space
      *
-     * @param String $string
+     * @param String $inputValue
      *
      * @return Bool
      */
-    public function alpha_space_only($string)
+    public function alpha_space_only($inputValue)
     {
-        if ( ! empty($string))
+        if ( ! empty($inputValue))
         {
-            if (preg_match("/^[a-zA-Z ]+$/", $string))
+            if (preg_match("/^[a-zA-Z ]+$/", $inputValue))
             {
                 return TRUE;
             }
@@ -93,7 +83,7 @@ class Contact_Submit extends CI_Controller {
             {
                 $this->form_validation->set_message(
                     'alpha_space_only',
-                    $this->language['contact_message_callback_alpha_space_only']
+                    'The %s field must contain only alphabets and space.'
                 );
             }
         }
