@@ -6,7 +6,7 @@ class Website_Controller_Test extends TestCase {
     /**
      * Testing class object data
      *
-     * @var Website_controller
+     * @var Website_Controller
      */
     private $class_object;
 
@@ -15,7 +15,7 @@ class Website_Controller_Test extends TestCase {
      */
     public function setUp()
     {
-        $this->class_object = $this->newController('Website_controller');
+        $this->class_object = $this->newController('Website_Controller');
     }
 
     /**

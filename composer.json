@@ -1,5 +1,6 @@
 {
     "name": "90zlaya/space-prospection",
+    "type": "website",
     "description": "Space Prospection is my first website built completely in CodeIgniter framework.",
     "keywords": [
         "php",

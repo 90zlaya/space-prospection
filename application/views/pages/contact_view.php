@@ -33,41 +33,29 @@
             </form>
             <div id="alert-mesage"></div>
             <script>
-                $('form#contact_us').submit(function()
-                {
+                $('form#contact_us').submit(function() {
                     var form_data = $(this).serialize();
-                    
-                    $.ajax(
-                    {
-                        url: '<?=site_url('ajax/contact_submit/contact_us')?>',
+                    $.ajax({
+                        url: '<?=site_url('ajax/Contact_Submit/contact_us')?>',
                         type: 'POST',
                         data: form_data,
-                        success: function(message)
-                        {
-                            if (message == 'YES')
-                            {
+                        success: function(message) {
+                            if (message === 'YES') {
                                 alert('E-mail has been sent.');
                                 $('#alert-mesage').html('');
                                 $('.contact-input').val('');
-                            }
-                            else if (message == 'NO')
-                            {
+                            } else if (message === 'NO') {
                                 alert('E-mail is not sent.');
                                 $('#alert-mesage').html('');
                                 $('.contact-input').val('');
-                            }
-                            else
-                            {
+                            } else {
                                 $('#alert-mesage').html('<div class="alert alert-danger">' + message + '</div>');
                             }
                         },
-                        error: function()
-                        {
+                        error: function() {
                             alert('ERROR');
                         }
-                    }
-                    );
-                    
+                    });
                     return false;
                 });
             </script>

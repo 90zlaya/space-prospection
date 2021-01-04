@@ -6,7 +6,7 @@ class Contact_Submit_Test extends TestCase {
     /**
      * Testing class object data
      *
-     * @var Contact_submit
+     * @var Contact_Submit
      */
     private $class_object;
 
@@ -15,7 +15,7 @@ class Contact_Submit_Test extends TestCase {
      */
     public function setUp()
     {
-        $this->class_object = $this->newController('Contact_submit');
+        $this->class_object = $this->newController('Contact_Submit');
     }
 
     /**
@@ -27,7 +27,7 @@ class Contact_Submit_Test extends TestCase {
 
         $this->assertNull($result);
 
-        $output = $this->request('POST', 'ajax/contact_submit/contact_us', array(
+        $output = $this->request('POST', 'ajax/Contact_Submit/contact_us', array(
             'name'    => 'Zlatan',
             'email'   => 'contact@zlatanstajic.com',
             'subject' => 'space-prospection',

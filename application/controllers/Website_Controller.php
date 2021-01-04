@@ -17,8 +17,8 @@ class Website_Controller extends CI_Controller {
     {
         parent::__construct();                                    
         
-        $this->data['socials']    = $this->website_model->social_links();
-        $this->data['navigation'] = $this->website_model->navigation();
+        $this->data['socials']    = $this->Website_Model->social_links();
+        $this->data['navigation'] = $this->Website_Model->navigation();
     }
     
     /**
@@ -46,7 +46,7 @@ class Website_Controller extends CI_Controller {
      */
     public function projects()
     {
-        $data['projects'] = $this->website_model->projects();
+        $data['projects'] = $this->Website_Model->projects();
         
         $this->load->view('templates/header_view', $this->data);
         $this->load->view('pages/projects_view', $data);
