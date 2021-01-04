@@ -15,7 +15,7 @@
 
 SCRIPT_NAME="`basename $(readlink -f $0)`"
 SCRIPT_DIR="`dirname $(readlink -f $0)`"
-ROOT_DIR="$SCRIPT_DIR/.."
+ROOT_DIR="$SCRIPT_DIR/../.."
 APP_DIR="$ROOT_DIR/application"
 VENDOR_DIR="$APP_DIR/vendor"
 CODESNIFFER_DIRS=(

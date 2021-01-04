@@ -1,8 +1,8 @@
 #!/bin/bash
 
 ################################################################################
-# Script name : check.sh
-# Description : Check if your machine is setup properly 
+# Script name : setup.sh
+# Description : Setup project 
 # Arguments   : /
 # Author      : 90zlaya
 # Email       : contact@zlatanstajic.com
@@ -15,7 +15,8 @@
 
 SCRIPT_NAME="`basename $(readlink -f $0)`"
 SCRIPT_DIR="`dirname $(readlink -f $0)`"
-ROOT_DIR="$SCRIPT_DIR/.."
+ROOT_DIR="$SCRIPT_DIR/../.."
+APP_DIR="$ROOT_DIR/application"
 
 ################################################################################
 # Shell terminates
@@ -41,27 +42,12 @@ End()
 
 echo ""
 echo "Script $SCRIPT_NAME starting..."
-echo "=============================================================>"
-echo "Checking PHP version"
-echo ""
-php --version
-echo "<============================================================="
-echo "=============================================================>"
-echo "Checking composer version"
-echo ""
-composer --version
-echo "<============================================================="
-echo "=============================================================>"
-echo "Cheecking PHPUnit version"
-echo ""
-phpunit --version
-echo "<============================================================="
-echo "=============================================================>"
-echo "Checking SQLite3 version"
-echo ""
-sqlite3 --version
-echo "<============================================================="
-echo ""
+
+composer install
+php "$APP_DIR/vendor/kenjis/ci-phpunit-test/install.php"
+rm "$APP_DIR/tests/controllers/Welcome_test.php"
+cp "$APP_DIR/tests/.phpunit.xml" "$APP_DIR/tests/phpunit.xml"
+
 End 0
 
 ################################################################################

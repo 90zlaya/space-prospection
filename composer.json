@@ -17,10 +17,10 @@
       }
     ],
     "scripts": {
-      "check": "bash shell/check.sh",
-      "setup": "bash shell/setup.sh",
+      "check": "bash .extras/shell/check.sh",
+      "setup": "bash .extras/shell/setup.sh",
       "serve": "php -S localhost:8081",
-      "autotest": "bash shell/auto-test.sh"
+      "autotest": "bash .extras/shell/auto-test.sh"
     },
     "config": {
         "sort-packages": true,
