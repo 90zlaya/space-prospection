@@ -20,7 +20,6 @@
       "check": "bash shell/check.sh",
       "setup": "bash shell/setup.sh",
       "serve": "php -S localhost:8081",
-      "phpunit": "phpunit -c application/tests",
       "autotest": "bash shell/auto-test.sh"
     },
     "config": {

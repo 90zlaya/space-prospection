@@ -53,9 +53,6 @@ When installing on a server just change following:
 Please note that you need PHPUnit installed on your machine. Running `apt-get install phpunit` will do the work for [Linux](https://www.linux.org/)-based operating systems. All unit tests are stored inside [application/tests](application/tests) folder.
 
 ```bash
-# Run unit tests
-composer run phpunit
-
 # Run all tests
 composer run autotest
 ```
