@@ -4,30 +4,26 @@
             <h1>Contact</h1>
             <h2>Do not hesitate to contact us</h2>
             <form id='contact_us'>
-                <input 
+                <input placeholder="Name" 
                     type="text" 
                     name="name" 
                     class="contact-input" 
-                    placeholder="Name" 
                 > 
-                <input 
+                <input placeholder="E-mail Address" 
                     type="text"  
                     name="email" 
                     class="contact-input" 
-                    placeholder="E-mail Address" 
                 > 
-                <input 
+                <input placeholder="Subject"
                     type="text" 
                     name="subject" 
                     class="contact-input" 
-                    placeholder="Subject"
                 >
-                <textarea 
+                <textarea placeholder="Message"
                     name="message" 
                     class="contact-input" 
                     cols="50" 
                     rows="7"
-                    placeholder="Message"
                 ></textarea>
                 <input type="submit" value="Send" id="submit">
             </form>
@@ -36,7 +32,7 @@
                 $('form#contact_us').submit(function() {
                     var form_data = $(this).serialize();
                     $.ajax({
-                        url: '<?=site_url('ajax/Contact_Submit/contact_us')?>',
+                        url: '<?=site_url('contact_us')?>',
                         type: 'POST',
                         data: form_data,
                         success: function(message) {
