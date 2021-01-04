@@ -46,7 +46,7 @@ echo "Script $SCRIPT_NAME starting..."
 composer install
 php "$APP_DIR/vendor/kenjis/ci-phpunit-test/install.php"
 rm "$APP_DIR/tests/controllers/Welcome_test.php"
-cp "$APP_DIR/tests/.phpunit.xml" "$APP_DIR/tests/phpunit.xml"
+cp "$ROOT_DIR/.extras/phpunit.xml" "$APP_DIR/tests/phpunit.xml"
 
 End 0
 

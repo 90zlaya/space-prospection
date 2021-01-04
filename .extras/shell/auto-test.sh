@@ -18,7 +18,7 @@ SCRIPT_DIR="`dirname $(readlink -f $0)`"
 ROOT_DIR="$SCRIPT_DIR/../.."
 APP_DIR="$ROOT_DIR/application"
 VENDOR_DIR="$APP_DIR/vendor"
-CODESNIFFER_DIRS=(
+PHPCS_DIRS=(
   "controllers"
   "models"
   "tests/controllers"
@@ -50,9 +50,9 @@ End()
 echo ""
 echo "Script $SCRIPT_NAME starting..."
 
-for directory in ${CODESNIFFER_DIRS[*]}
+for directory in ${PHPCS_DIRS[*]}
 do
-  "${VENDOR_DIR}/bin/phpcs" "${APP_DIR}/${directory}/" --standard="${ROOT_DIR}/ruleset.xml" --colors
+  "${VENDOR_DIR}/bin/phpcs" "${APP_DIR}/${directory}/" --standard="${ROOT_DIR}/.extras/phpcs.xml" --colors
   echo "Finished PHP_CodeSniffer for ${directory} directory"
 done
 

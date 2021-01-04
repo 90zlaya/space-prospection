@@ -13,7 +13,6 @@ composer.lock
 /application/vendor
 
 # Exceptions
-!/application/tests/.phpunit.xml
 !/application/tests/controllers
 !/application/tests/models
 
