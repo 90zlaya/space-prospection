@@ -6,15 +6,12 @@
             <?php
                 foreach ($projects as $project)
                 {
-                    echo '
-                        <li>
-                            <a><img src="assets/images/projects/' . $project['image'] . '" alt=""></a>
-                            <div>
-                                <h1>' . $project['title'] . '</h1>
-                                <p>' . $project['description'] . '</p>
-                            </div>
-                        </li>                            
-                    ';
+                    echo '<li><a><img src="assets/images/projects/';
+                    echo $project['image'];
+                    echo '" alt="' . $project['title'] . '"></a>';
+                    echo '<div><h1>' . $project['title'] . '</h1>';
+                    echo '<p>' . $project['description'] . '</p>';
+                    echo '</div></li>';
                 }
             ?>   
             </ul>

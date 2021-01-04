@@ -8,14 +8,14 @@
 	</div>
 	<div class="body">
 		<div>
-			<img src="assets/images/earth-satellite.jpg" alt="">
+			<img src="assets/images/earth-satellite.jpg" alt="Earth Satellite">
 			<h2>Government space agencies</h2>
 			<p>Six government space agencies - the Indian Space Research Organisation (ISRO), the European Space Agency (ESA), the China National Space Administration (CNSA), the Japan Aerospace Exploration Agency (JAXA), the National Aeronautics and Space Administration (NASA) and the Russian Federal Space Agency (RFSA or Roscosmos)...</p>
 		</div>
 	</div>
 	<div class="footer">
 		<div>
-			<img src="assets/images/space-shuttle.png" alt="">
+			<img src="assets/images/space-shuttle.png" alt="Space Shuttle">
 			<h2>How did NASA start?</h2>
 			<p>The National Aeronautics and Space Act was passed on July 29, 1958, disestablishing NASA's predecessor, the National Advisory Committee for Aeronautics (NACA). The new agency became operational on October 1, 1958.</p>
 		</div>
