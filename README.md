@@ -18,7 +18,7 @@ Space Prospection is simple website built completely in CodeIgniter framework. C
 
 ## Look and Feel
 
-<img src="https://link.zlatanstajic.com/images/portfolio/space-prospection.jpg?clear_cache=1" alt="Homepage of Space Prospection website" width="350"/>
+<img src=".extras/screenshots/homepage.jpg?clear_cache=1" alt="Homepage of Space Prospection website" width="350"/>
 
 Currently home page looks like this, but have in mind that this image might stay few commits behind.
 
