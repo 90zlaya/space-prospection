@@ -7,9 +7,8 @@
 
 # Custom
 composer.lock
-/application/tests/*
-/application/tests/controllers/Welcome_test.php
-/application/tests/models/.gitkeep
+/application/config/production
+/application/tests
 /application/vendor
 
 # Exceptions
