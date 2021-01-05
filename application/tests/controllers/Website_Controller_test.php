@@ -38,7 +38,7 @@ class Website_Controller_test extends TestCase {
 
         $this->assertNull($result);
 
-        $output = $this->request('POST', 'submit_message', array(
+        $output = $this->request('POST', 'submit-message', array(
             'name'    => 'Zlatan',
             'email'   => 'contact@zlatanstajic.com',
             'subject' => 'space-prospection',

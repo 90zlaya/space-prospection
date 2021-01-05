@@ -3,7 +3,7 @@
         <div class="contact">
             <h1>Contact</h1>
             <h2>Do not hesitate to contact us</h2>
-            <form id='submit_message'>
+            <form id='submit-message'>
                 <input placeholder="Name" 
                     type="text" 
                     name="name" 
@@ -29,10 +29,10 @@
             </form>
             <div id="alert-mesage"></div>
             <script>
-                $('form#submit_message').submit(function() {
+                $('form#submit-message').submit(function() {
                     var form_data = $(this).serialize();
                     $.ajax({
-                        url: '<?=site_url('submit_message')?>',
+                        url: '<?=site_url('submit-message')?>',
                         type: 'POST',
                         data: form_data,
                         success: function(message) {
