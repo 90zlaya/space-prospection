@@ -118,19 +118,16 @@ class Website_Controller extends CI_Controller {
      */
     public function alpha_space_only($inputValue)
     {
-        if ( ! empty($inputValue))
+        if (preg_match("/^[a-zA-Z ]+$/", $inputValue))
         {
-            if (preg_match("/^[a-zA-Z ]+$/", $inputValue))
-            {
-                return TRUE;
-            }
-            else
-            {
-                $this->form_validation->set_message(
-                    'alpha_space_only',
-                    'The %s field must contain only alphabets and space.'
-                );
-            }
+            return TRUE;
+        }
+        else
+        {
+            $this->form_validation->set_message(
+                'alpha_space_only',
+                'The %s field must contain only alphabets and space.'
+            );
         }
     }
 
