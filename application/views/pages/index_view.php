@@ -7,18 +7,17 @@
 			<div class="big"></div>
 			<h3>FEATURED PROJECTS</h3>
 			<ul>
-				<li>
-					<a><img src="assets/images/project-image1.jpg" alt="Project image 1"></a>
-				</li>
-				<li>
-					<a><img src="assets/images/project-image2.jpg" alt="Project image 2"></a>
-				</li>
-				<li>
-					<a><img src="assets/images/project-image3.jpg" alt="Project image 3"></a>
-				</li>
-				<li>
-					<a><img src="assets/images/project-image4.jpg" alt="Project image 4"></a>
-				</li>
+				<?php
+					for ($i=1; $i<=4; $i++)
+					{
+						echo '<li>';
+						echo '<a><img src="assets/images/project-image';
+						echo $i;
+						echo '.jpg" alt="Project image ';
+						echo $i;
+						echo '"></a></li>';
+					}
+				?>
 			</ul>
 		</div>
 	</div>
