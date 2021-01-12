@@ -19,7 +19,7 @@
   "scripts": {
     "check": "bash .extras/shell/check.sh",
     "setup": "bash .extras/shell/setup.sh",
-    "serve": "php -S localhost:8081",
+    "serve": "php -S localhost:8080",
     "autotest": "bash .extras/shell/auto-test.sh"
   },
   "config": {
