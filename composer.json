@@ -28,7 +28,7 @@
     "vendor-dir": "application/vendor"
   },
   "require-dev": {
-    "kenjis/ci-phpunit-test": "0.18.*",
+    "kenjis/ci-phpunit-test": "0.15.*",
     "squizlabs/php_codesniffer": "3.4.*"
   }
 }
