@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Website_Controller_test extends TestCase {
+class Website_Controller_Test extends TestCase {
 
     /**
      * Testing class object data
